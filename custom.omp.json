@@ -5,7 +5,7 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#6ba2fb",
+          "background": "#9adcff",
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
@@ -13,21 +13,20 @@
           "type": "os"
         },
         {
-          "background": "#6ba2fb",
+          "background": "#9adcff",
           "foreground": "#193549",
           "style": "powerline",
           "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
-          "background": "#f1c4a7",
+          "background": "#9adcff",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
           "properties": {
             "time_format": "15:04:05"
           },
           "style": "powerline",
-          "template": " {{ .CurrentDate | date .Format }} ",
+          "template": "- {{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
         {
@@ -63,7 +62,7 @@
         },
         {
           "background": "#6CA35E",
-          "foreground": "#ffffff",
+          "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
