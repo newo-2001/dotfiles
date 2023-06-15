@@ -57,7 +57,7 @@
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " \uf1bc {{ regexReplaceAll \" ?[\\\\(\\\\[\uff08\uff3b][Cc][Vv]\\\\..+?[\\\\)\\\\]\uff09\uff3d]\" .Artist \"\" }} - {{ regexReplaceAll \" ?[\\\\(\\\\[]([Ff]eat\\\\.|[Ww]ith |&|[Ff]rom ) .+?[\\\\)\\\\]]\" .Track \"\" }} ",
+          "template": " \uf1bc {{ regexReplaceAll \" ?[\\\\(\\\\[\uff08\uff3b][Cc][Vv]\\\\..+?[\\\\)\\\\]\uff09\uff3d]\" .Artist \"\" }} - {{ regexReplaceAll \" ?([\\\\(\\\\[\uff08\uff3b](([Ff]eat\\\\.|[Ww]ith |&|[Ff]rom ).+?|[Rr]adio [Ee]dit)[\\\\)\\\\]\uff09\uff3d]|- [Rr]adio [Ee]dit$)\" .Track \"\" }} ",
           "type": "spotify"
         },
         {
