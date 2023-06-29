@@ -9,7 +9,7 @@
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": "{{ if .WSL }}WSL {{ end }}{{.Icon}} ",
+          "template": "{{.Icon}} ",
           "type": "os"
         },
         {
