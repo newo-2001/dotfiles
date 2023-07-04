@@ -11,6 +11,7 @@ James-Yu.latex-workshop
 mechatroner.rainbow-csv
 ms-azure-devops.azure-pipelines
 ms-azuretools.vscode-bicep
+ms-azuretools.vscode-dapr
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
 ms-python.python
