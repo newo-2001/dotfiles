@@ -22,15 +22,6 @@ if (Test-Path "env:POSH_THEMES_PATH")
 Write-Output "Sharing environment variables with WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 
-& {
-    # Install Git hooks for this repository
-    Write-Output "Installing Git hooks for this repository..."
-    $source = Join-Path "Git" "hooks"
-    $mirror = Join-Path ".git" "hooks"
-    $null = Remove-Item -Path $mirror -Recurse
-    $null = New-Item -Path $mirror -ItemType Junction -Value $source -Force
-}
-
 # Test if VSCode is installed
 if (Get-Command "code" -ErrorAction SilentlyContinue)
 {

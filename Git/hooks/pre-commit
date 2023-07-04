@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "Saving VSCode Extensions..."
-code --list-extensions > VSCode/extensions.txt
-git add VSCode/extensions.txt
