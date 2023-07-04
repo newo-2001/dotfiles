@@ -61,6 +61,14 @@
           "type": "spotify"
         },
         {
+          "background": "#9bc2ff",
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \uebd8 {{ .Name }} ",
+          "type": "az"
+        },
+        {
           "background": "#6CA35E",
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
