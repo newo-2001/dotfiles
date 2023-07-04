@@ -46,10 +46,11 @@
           "powerline_symbol": "\ue0b0",
           "properties": {
             "fetch_upstream_icon": true,
+            "fetch_stash_count": true,
             "branch_icon": "\ue725 "
           },
           "style": "powerline",
-          "template": " {{ .UpstreamIcon }}({{ .HEAD }}) ",
+          "template": " {{ .UpstreamIcon }}({{ .HEAD }}) {{ if .StashCount }}+{{ .StashCount }} {{ end }}",
           "type": "git"
         },
         {
