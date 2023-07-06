@@ -21,6 +21,13 @@
         },
         {
           "background": "#9adcff",
+          "foreground": "#e7e35c",
+          "style": "powerline",
+          "template": "󱐋 ",
+          "type": "root"
+        },
+        {
+          "background": "#9adcff",
           "foreground": "#193549",
           "properties": {
             "time_format": "15:04:05"
