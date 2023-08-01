@@ -35,4 +35,13 @@ if (Get-Command "code" -ErrorAction SilentlyContinue)
     Start-Process "code" -ArgumentList $arguments -NoNewWindow -Wait
 }
 
+# Test if Git is installed
+if (Get-Command "git" -ErrorAction SilentlyContinue)
+{
+    # Install .gitconfig
+    Write-Output "Installing Git Configuration"
+    $source = Join-Path "Git" ".gitconfig"
+    $null = New-Item -Path $HOME -Name ".gitconfig" -ItemType SymbolicLink -Value $source -Force
+}
+
 Write-Output "Done."
