@@ -89,7 +89,7 @@
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "type": "exit"
+          "type": "status"
         }
       ],
       "type": "prompt"
