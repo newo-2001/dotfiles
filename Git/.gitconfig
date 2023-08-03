@@ -18,3 +18,6 @@
 
 [diff]
     colorMoved = default
+
+[alias]
+    ls = log --pretty='format:%C(yellow)%h %C(blue)%s %C(white)by %C(green)%an %C(white)%cr'
