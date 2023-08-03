@@ -5,19 +5,22 @@ echo "Installing Bash Profile..."
 ln -sf $(realpath "Bash/.bashrc") ~/.bashrc
 ln -sf $(realpath "Bash/.profile") ~/.profile 
 
-echo "Installing Git Profile..."
-ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
-
 if ! hash brew
 then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if ! hash delta
+if hash git
 then
-    echo "Installing Delta..."
-    brew reinstall git-delta
+    echo "Installing Git Profile..."
+    ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
+
+    if ! hash delta
+    then
+        echo "Installing Delta..."
+        brew reinstall git-delta
+    fi
 fi
 
 if ! hash oh-my-posh

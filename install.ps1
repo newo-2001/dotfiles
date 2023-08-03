@@ -45,13 +45,13 @@ if (Get-Command "git" -ErrorAction SilentlyContinue)
     Write-Output "Installing Git configuration..."
     $source = Join-Path "Git" ".gitconfig"
     $null = New-Item -Path $HOME -Name ".gitconfig" -ItemType SymbolicLink -Value $source -Force
-}
 
-if (!(Get-Command "delta" -ErrorAction SilentlyContinue))
-{
-    # Install Delta
-    Write-Output "Installing Delta..."
-    winget install dandavison.delta
+    if (!(Get-Command "delta" -ErrorAction SilentlyContinue))
+    {
+        # Install Delta
+        Write-Output "Installing Delta..."
+        winget install dandavison.delta
+    }
 }
 
 Write-Output "Done."
