@@ -5,6 +5,7 @@
 [core]
     pager = delta
     autocrlf = true
+    longpaths = true
 
 [interactive]
     diffFilter = delta --color-only
