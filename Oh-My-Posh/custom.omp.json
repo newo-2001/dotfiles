@@ -5,7 +5,10 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#9adcff",
+          "background_templates": [
+            "{{if contains .OS \"windows\"}}#9adcff{{end}}",
+            "{{if contains .OS \"ubuntu\"}}#e95420{{end}}"
+          ],
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
@@ -13,21 +16,21 @@
           "type": "os"
         },
         {
-          "background": "#9adcff",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
+          "background": "parentBackground",
           "style": "powerline",
           "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
-          "background": "#9adcff",
+          "background": "parentBackground",
           "foreground": "#e7e35c",
           "style": "powerline",
           "template": "󱐋 ",
           "type": "root"
         },
         {
-          "background": "#9adcff",
+          "background": "parentBackground",
           "foreground": "#193549",
           "properties": {
             "time_format": "15:04:05"
