@@ -3,8 +3,10 @@
   "patch_pwsh_bleed": true,
   "var": {
     "Spotify": {
-      "ArtistRegex": " ?[\\(\\[\uff08\uff3b][Cc][Vv]\\..+?[\\)\\]\uff09\uff3d]",
-      "SongRegex": " ?([\\(\\[\uff08\uff3b](([Ff]eat\\.|[Ww]ith |&|[Ff]rom ).+?|[Rr]adio [Ee]dit)[\\)\\]\uff09\uff3d]|- [Rr]adio [Ee]dit$)"
+      "RemixRegex": "(?:.+? )(?:- (.+?) Remix|[\\(\\[]([^\\)\\]]+?) Remix[\\)\\]])(?:.*)",
+      "ArtistRegex": " ?[\\(\\[（［][Cc][Vv][\\.:].+?[\\)\\]）］]",
+      "SongRegex": "( ?[\\[\\(（［](([Ff](ea)?t\\.|[Ww]ith |[Ff]rom |&)[^\\)\\]]+?|[^\\)\\]]*?(Edit|EDIT|Mix|MIX|VIP|Remix|[Vv]er\\.))[\\]\\)）］])| - .*?(Edit|EDIT|Mix|MIX|VIP|Remix|[Vv]er\\.)$",
+      "SongRegexGreedy": " ?[\\[\\(（［]([^\\)\\]）］]*)[\\)\\]）］]| - .*$"
     }
   },
   "blocks": [
@@ -84,9 +86,9 @@
           "style": "powerline",
           "templates": [
             " \uf1bc ",
-            "{{ regexReplaceAll .Var.Spotify.ArtistRegex .Artist \"\" }}",
+            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2\") .Artist) \"\" }}",
             " - ",
-            "{{ regexReplaceAll .Var.Spotify.SongRegex .Track \"\" }} "
+            "{{ replaceP .Var.Spotify.SongRegexGreedy .Track \"\" }} "
           ],
           "type": "spotify"
         },
