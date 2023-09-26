@@ -64,13 +64,16 @@
           "properties": {
             "fetch_upstream_icon": true,
             "fetch_stash_count": true,
+            "fetch_status": true,
             "branch_icon": "\ue725 "
           },
           "style": "powerline",
           "templates": [
             " {{ .UpstreamIcon }}({{ .HEAD }}) ",
-            "{{ if .StashCount }}+{{ .StashCount }} {{ end }}",
-            "{{ if hasPrefix \"WIP\" (upper .Commit.Subject) }}\uf0ad {{ end }}"
+            "{{ if .Ahead }}+{{ .Ahead }} {{ end }}",
+            "{{ if .Behind }}-{{ .Behind }} {{ end }}",
+            "{{ if .StashCount }}(\uf187 +{{ .StashCount }}) {{ end }}",
+            "{{ if hasPrefix \"WIP\" .Commit.Subject }}\uf0ad {{ end }}"
           ],
           "type": "git"
         },
