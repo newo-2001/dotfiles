@@ -15,6 +15,7 @@ if hash git
 then
     echo "Installing Git Profile..."
     ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
+    ln -sf $(realpath "Git/templates") ~/.git-templates
 
     if ! hash delta
     then

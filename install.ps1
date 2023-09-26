@@ -46,6 +46,10 @@ if (Get-Command "git" -ErrorAction SilentlyContinue)
     $source = Join-Path "Git" ".gitconfig"
     $null = New-Item -Path $HOME -Name ".gitconfig" -ItemType SymbolicLink -Value $source -Force
 
+    # Install .git-templates
+    $source = Join-Path "Git" "templates"
+    $null = New-Item -Path $HOME -Name ".git-templates" -ItemType SymbolicLink -Value $source -Force
+
     if (!(Get-Command "delta" -ErrorAction SilentlyContinue))
     {
         # Install Delta
