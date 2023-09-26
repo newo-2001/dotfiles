@@ -1,14 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "patch_pwsh_bleed": true,
+  "var": {
+    "Spotify": {
+      "ArtistRegex": " ?[\\(\\[\uff08\uff3b][Cc][Vv]\\..+?[\\)\\]\uff09\uff3d]",
+      "SongRegex": " ?([\\(\\[\uff08\uff3b](([Ff]eat\\.|[Ww]ith |&|[Ff]rom ).+?|[Rr]adio [Ee]dit)[\\)\\]\uff09\uff3d]|- [Rr]adio [Ee]dit$)"
+    }
+  },
   "blocks": [
     {
       "alignment": "left",
       "segments": [
         {
           "background_templates": [
-            "{{if contains .OS \"windows\"}}#9adcff{{end}}",
-            "{{if contains .OS \"ubuntu\"}}#e95420{{end}}"
+            "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
+            "{{ if contains .OS \"ubuntu\" }}#e95420{{ end }}"
           ],
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
@@ -61,7 +67,11 @@
             "branch_icon": "\ue725 "
           },
           "style": "powerline",
-          "template": " {{ .UpstreamIcon }}({{ .HEAD }}) {{ if .StashCount }}+{{ .StashCount }} {{ end }}{{ if hasPrefix \"WIP\" (upper .Commit.Subject) }}\uf0ad {{ end }}",
+          "templates": [
+            " {{ .UpstreamIcon }}({{ .HEAD }}) ",
+            "{{ if .StashCount }}+{{ .StashCount }} {{ end }}",
+            "{{ if hasPrefix \"WIP\" (upper .Commit.Subject) }}\uf0ad {{ end }}"
+          ],
           "type": "git"
         },
         {
@@ -69,7 +79,12 @@
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " \uf1bc {{ regexReplaceAll \" ?[\\\\(\\\\[\uff08\uff3b][Cc][Vv]\\\\..+?[\\\\)\\\\]\uff09\uff3d]\" .Artist \"\" }} - {{ regexReplaceAll \" ?([\\\\(\\\\[\uff08\uff3b](([Ff]eat\\\\.|[Ww]ith |&|[Ff]rom ).+?|[Rr]adio [Ee]dit)[\\\\)\\\\]\uff09\uff3d]|- [Rr]adio [Ee]dit$)\" .Track \"\" }} ",
+          "templates": [
+            " \uf1bc ",
+            "{{ regexReplaceAll .Var.Spotify.ArtistRegex .Artist \"\" }}",
+            " - ",
+            "{{ regexReplaceAll .Var.Spotify.SongRegex .Track \"\" }} "
+          ],
           "type": "spotify"
         },
         {
@@ -85,7 +100,11 @@
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "templates": [
+            " \ue718 ",
+            "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}",
+            "{{ .Full }} "
+          ],
           "type": "node"
         },
         {
