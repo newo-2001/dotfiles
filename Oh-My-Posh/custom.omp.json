@@ -5,8 +5,7 @@
     "Spotify": {
       "RemixRegex": "(?:.+? )(?:- (.+?) Remix|[\\(\\[]([^\\)\\]]+?) Remix[\\)\\]])(?:.*)",
       "ArtistRegex": " ?[\\(\\[（［][Cc][Vv][\\.:].+?[\\)\\]）］]",
-      "SongRegex": "( ?[\\[\\(（［](([Ff](ea)?t\\.|[Ww]ith |[Ff]rom |&)[^\\)\\]]+?|[^\\)\\]]*?(Edit|EDIT|Mix|MIX|VIP|Remix|[Vv]er\\.))[\\]\\)）］])| - .*?(Edit|EDIT|Mix|MIX|VIP|Remix|[Vv]er\\.)$",
-      "SongRegexGreedy": " ?[\\[\\(（［]([^\\)\\]）］]*)[\\)\\]）］]| - .*$"
+      "SongRegex": " ?[\\[\\(（［]([^\\)\\]）］]*)[\\)\\]）］]| - .*$"
     }
   },
   "blocks": [
@@ -88,7 +87,7 @@
             " \uf1bc ",
             "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2\") .Artist) \"\" }}",
             " - ",
-            "{{ replaceP .Var.Spotify.SongRegexGreedy .Track \"\" }} "
+            "{{ replaceP .Var.Spotify.SongRegex .Track \"\" }} "
           ],
           "type": "spotify"
         },
