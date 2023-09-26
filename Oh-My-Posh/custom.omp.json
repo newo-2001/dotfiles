@@ -60,7 +60,7 @@
             "branch_icon": "\ue725 "
           },
           "style": "powerline",
-          "template": " {{ .UpstreamIcon }}({{ .HEAD }}) {{ if .StashCount }}+{{ .StashCount }} {{ end }}",
+          "template": " {{ .UpstreamIcon }}({{ .HEAD }}) {{ if .StashCount }}+{{ .StashCount }} {{ end }}{{ if hasPrefix \"WIP\" (upper .Commit.Subject) }}\uf0ad {{ end }}",
           "type": "git"
         },
         {
