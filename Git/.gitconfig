@@ -28,3 +28,4 @@
     ls = log --pretty='format:%C(yellow)%h %C(blue)%s %C(white)by %C(green)%an %C(white)%cr'
     fix = commit --amend --no-edit
     yeet = reset HEAD --hard
+    wip = reset HEAD~1
