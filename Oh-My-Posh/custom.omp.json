@@ -40,7 +40,7 @@
           "background": "parentBackground",
           "foreground": "#193549",
           "properties": {
-            "time_format": "15:04:05"
+            "time_format": "15:04"
           },
           "style": "powerline",
           "template": "- {{ .CurrentDate | date .Format }} ",
