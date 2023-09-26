@@ -71,8 +71,8 @@
           "style": "powerline",
           "templates": [
             " {{ .UpstreamIcon }}({{ .HEAD }}) ",
-            "{{ if .Ahead }}+{{ .Ahead }} {{ end }}",
-            "{{ if .Behind }}-{{ .Behind }} {{ end }}",
+            "{{ if .Ahead }}{{ .Ahead }} {{ end }}",
+            "{{ if .Behind }}{{ .Behind }} {{ end }}",
             "{{ if .StashCount }}(\uf187 +{{ .StashCount }}) {{ end }}",
             "{{ if hasPrefix \"WIP\" .Commit.Subject }}\uf0ad {{ end }}"
           ],
