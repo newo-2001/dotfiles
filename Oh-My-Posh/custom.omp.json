@@ -20,7 +20,7 @@
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": "{{.Icon}} ",
+          "template": "{{ .Icon }} ",
           "type": "os"
         },
         {
@@ -50,41 +50,41 @@
         {
           "background": "#ff92fd",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "properties": {
             "style": "folder"
           },
           "style": "powerline",
-          "template": " \ue5ff {{ .Path }} ",
+          "template": "  {{ .Path }} ",
           "type": "path"
         },
         {
           "background": "#f5f263",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "properties": {
             "fetch_upstream_icon": true,
             "fetch_stash_count": true,
             "fetch_status": true,
-            "branch_icon": "\ue725 "
+            "branch_icon": " "
           },
           "style": "powerline",
           "templates": [
             " {{ .UpstreamIcon }}({{ .HEAD }}) ",
             "{{ if .Ahead }}{{ .Ahead }} {{ end }}",
             "{{ if .Behind }}{{ .Behind }} {{ end }}",
-            "{{ if .StashCount }}(\uf187 +{{ .StashCount }}) {{ end }}",
-            "{{ if hasPrefix \"WIP\" .Commit.Subject }}\uf0ad {{ end }}"
+            "{{ if .StashCount }}( +{{ .StashCount }}) {{ end }}",
+            "{{ if hasPrefix \"WIP\" .Commit.Subject }} {{ end }}"
           ],
           "type": "git"
         },
         {
           "background": "#b3de6e",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "style": "powerline",
           "templates": [
-            " \uf1bc ",
+            "  ",
             "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2\") .Artist) \"\" }}",
             " - ",
             "{{ replaceP .Var.Spotify.SongRegex .Track \"\" }} "
@@ -94,18 +94,18 @@
         {
           "background": "#9bc2ff",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "style": "powerline",
-          "template": " \uebd8 {{ .Name }} ",
+          "template": "  {{ .Name }} ",
           "type": "az"
         },
         {
           "background": "#6CA35E",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "style": "powerline",
           "templates": [
-            " \ue718 ",
+            "  ",
             "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}",
             "{{ .Full }} "
           ],
@@ -114,7 +114,7 @@
         {
           "background": "#fc7777",
           "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "style": "powerline",
           "type": "status"
         }
