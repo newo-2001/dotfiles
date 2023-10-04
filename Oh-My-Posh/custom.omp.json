@@ -24,13 +24,6 @@
           "type": "os"
         },
         {
-          "foreground": "parentForeground",
-          "background": "parentBackground",
-          "style": "powerline",
-          "template": "{{ .UserName }} ",
-          "type": "session"
-        },
-        {
           "background": "parentBackground",
           "foreground": "#e7e35c",
           "style": "powerline",
@@ -44,7 +37,7 @@
             "time_format": "15:04"
           },
           "style": "powerline",
-          "template": "- {{ .CurrentDate | date .Format }} ",
+          "template": "{{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
         {
