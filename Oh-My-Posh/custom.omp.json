@@ -116,7 +116,12 @@
           "foreground": "#193549",
           "powerline_symbol": "",
           "style": "powerline",
-          "type": "status"
+          "type": "status",
+          "templates_logic": "first_match",
+          "templates": [
+            "{{ if eq .Code 1 }}  {{ end }}",
+            "{{ if ne .Code 0 }} {{ .Code }} {{ end }}"
+          ]
         }
       ],
       "type": "prompt"
