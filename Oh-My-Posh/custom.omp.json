@@ -59,7 +59,8 @@
             "fetch_upstream_icon": true,
             "fetch_stash_count": true,
             "fetch_status": true,
-            "branch_icon": " "
+            "branch_icon": " ",
+            "git_icon": " "
           },
           "style": "powerline",
           "templates": [
