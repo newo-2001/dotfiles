@@ -48,7 +48,11 @@
             "style": "folder"
           },
           "style": "powerline",
-          "template": "  {{ .Path }} ",
+          "templates": [
+            "  ",
+            "{{ if lower .Path | eq \"src\" }}{{ splitList (eq .OS \"windows\" | ternary \"\\\\\" \"/\") .Parent | reverse | rest | first }}/{{ end }}",
+            "{{ .Path }} "
+          ],
           "type": "path"
         },
         {
