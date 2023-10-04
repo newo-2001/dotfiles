@@ -15,7 +15,7 @@
         {
           "background_templates": [
             "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
-            "{{ if contains .OS \"ubuntu\" }}#e95420{{ end }}"
+            "{{ if contains .OS \"ubuntu\" }}#ff7441{{ end }}"
           ],
           "foreground": "#193549",
           "leading_diamond": "\ue0b6",
