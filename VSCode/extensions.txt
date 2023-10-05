@@ -6,12 +6,8 @@ bierner.markdown-mermaid
 bierner.markdown-preview-github-styles
 bierner.markdown-yaml-preamble
 equinusocio.vsc-material-theme-icons
-hashicorp.terraform
 James-Yu.latex-workshop
 mechatroner.rainbow-csv
-ms-azure-devops.azure-pipelines
-ms-azuretools.vscode-bicep
-ms-azuretools.vscode-dapr
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
 ms-python.python
@@ -28,7 +24,6 @@ ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
 ms-vscode.powershell
-PKief.material-icon-theme
 ritwickdey.LiveServer
 rust-lang.rust-analyzer
 twxs.cmake

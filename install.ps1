@@ -25,19 +25,6 @@ $WSL_ENV += ":POSH_THEMES_PATH/up";
 Write-Output "Sharing environment variables with WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 
-# Test if VSCode is installed
-#if (Get-Command "code" -ErrorAction SilentlyContinue)
-#{
-#    # Install VSCode extensions
-#    Write-Output "Installing VSCode extensions..."
-#    $arguments = ""
-#    foreach ($extension in Get-Content (Join-Path "VSCode" "extensions.txt"))
-#    {
-#        $arguments += "--install-extension $extension --force "
-#    }
-#    Start-Process "code" -ArgumentList $arguments -NoNewWindow -Wait
-#}
-
 # Test if Git is installed
 if (Get-Command "git" -ErrorAction SilentlyContinue)
 {
