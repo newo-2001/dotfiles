@@ -1,5 +1,15 @@
 {
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#007ACC"
+    },
+    "workbench.editorAssociations": {
+        "*.bin": "hexEditor.hexedit"
+    },
+    "window.zoomLevel": 1,
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
     "editor.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
     "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
     "terminal.integrated.minimumContrastRatio": 1,
@@ -14,5 +24,17 @@
         "<C-d>": true,
         "<C-s>": false,
         "<C-z>": false
-    }
+    },
+    "rust-analyzer.check.overrideCommand": [
+        "cargo",
+        "clippy",
+        "--message-format",
+        "json",
+        "--",
+        "-Wclippy::pedantic"
+    ],
+    "errorLens.excludeBySource": [
+        "rust-analyzer(syntax-error)",
+        "rustc(Click for full compiler diagnostic)"
+    ]
 }
