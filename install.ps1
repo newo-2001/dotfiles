@@ -1,4 +1,4 @@
-$WSL_ENV = "USERPROFILE/up";
+$WSL_ENV = "USERPROFILE/up:POSH_THEMES_PATH/up"
 
 & {
     # Install PowerShell Profile
@@ -20,14 +20,11 @@ if (!(Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
     Write-Output "Configuring Oh-My-Posh theme..."
     $source = Join-Path "Oh-My-Posh" "custom.omp.json"
     $null = New-Item -Path $Env:POSH_THEMES_PATH -Name "custom.omp.json" -ItemType SymbolicLink -Value $source -Force
-    $WSL_ENV += ":POSH_THEMES_PATH/up";
 }
 
 # Configure shared environment variables for WSL
-& {
-    Write-Output "Sharing environment variables with WSL..."
-    [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
-}
+Write-Output "Sharing environment variables with WSL..."
+[Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 
 # Test if Git is installed
 if (Get-Command "git" -ErrorAction SilentlyContinue)
