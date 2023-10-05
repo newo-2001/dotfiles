@@ -1,0 +1,17 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "editor.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+    "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+    "terminal.integrated.minimumContrastRatio": 1,
+    "powershell.integratedConsole.showOnStartup": false,
+    "latex-workshop.view.pdf.ref.viewer": "tabOrBrowser",
+    "latex-workshop.view.pdf.viewer": "browser",
+    "vim.smartRelativeLine": true,
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    }
+}
