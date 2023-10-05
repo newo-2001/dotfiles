@@ -68,7 +68,8 @@
           },
           "style": "powerline",
           "templates": [
-            " {{ .UpstreamIcon }}({{ .HEAD }}) ",
+            " {{ .UpstreamIcon }}",
+            "({{ .HEAD }}{{ if .Working.Changed }}*{{ end }}) ",
             "{{ if .Ahead }}{{ .Ahead }} {{ end }}",
             "{{ if .Behind }}{{ .Behind }} {{ end }}",
             "{{ if .StashCount }}( +{{ .StashCount }}) {{ end }}",
