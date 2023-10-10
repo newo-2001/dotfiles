@@ -1,5 +1,8 @@
 $WSL_ENV = "USERPROFILE/up:POSH_THEMES_PATH/up"
 
+# Disable progress bars
+$ProgressPreference = "SilentlyContinue"
+
 & {
     # Install PowerShell Profile
     Write-Output "Configuring Microsoft PowerShell profile..."
@@ -61,6 +64,48 @@ if ($process.ExitCode -ne 0)
     $source = [IO.Path]::Combine("PowerToys", "KeyboardManager", "default.json")
     $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "PowerToys", "Keyboard Manager")
     $null = New-Item -Path $destination -Name "default.json" -ItemType SymbolicLink -Value $source -Force
+}
+
+function Get-Fonts {
+    [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
+    (New-Object System.Drawing.Text.InstalledFontCollection).Families
+}
+
+# Check if the JetBrainsMono font is installed
+if (-Not ((Get-Fonts) -contains "JetBrainsMonoNL NFM"))
+{
+    # Create temp directory
+    $tempDirectory = "temp"
+    $null = New-Item -ItemType Directory -Force -Path $tempDirectory
+
+    # Download
+    Write-Output "Downloading JetBrainsMono font..."
+    Invoke-WebRequest -Uri "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" -OutFile "./temp/JetBrainsMono.zip"
+    
+    # Extract
+    Write-Output "Installing JetBrainsMono font..."
+    Expand-Archive -Path "./temp/JetBrainsMono.zip" -DestinationPath "./temp/JetBrainsMono" -Force
+
+    $fontsDirectory = Join-Path "temp" "JetBrainsMono"
+    $userFontsDirectory = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "Windows", "Fonts")
+    $fontFilter = "^JetBrainsMonoNLNerdFontMono-[A-Za-z]+.ttf$"
+
+    $fonts = Get-ChildItem -Path $fontsDirectory -Name | Where-Object { $_ -match $fontFilter }
+    foreach ($font in $fonts)
+    {
+        # Copy file to user fonts directory
+        $destination = Join-Path $userFontsDirectory $font
+        $font = Get-Item -Path "./temp/JetBrainsMono/$font"
+        $null = Copy-Item $font.FullName -Destination $destination -Force
+
+        # Create registry key
+        $fontName = "$($font.BaseName) (True Type)"
+        $registryKey = "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts"
+        $null = New-ItemProperty -Name $fontName -Path $registryKey -PropertyType string -Value $destination -Force
+    }
+
+    # Remove temp directory
+    Remove-Item $tempDirectory -Recurse -Force
 }
 
 Write-Output "Done."
