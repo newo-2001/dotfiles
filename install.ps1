@@ -25,9 +25,13 @@ if (!(Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
     $null = New-Item -Path $Env:POSH_THEMES_PATH -Name "custom.omp.json" -ItemType SymbolicLink -Value $source -Force
 }
 
-# Configure shared environment variables for WSL
-Write-Output "Sharing environment variables with WSL..."
+# Configure WSL
+Write-Output "Configuring WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
+& {
+    $source = Join-Path "WSL" ".wslconfig"
+    $null = New-Item -Path $Env:USERPROFILE -Name ".wslconfig" -ItemType SymbolicLink -Value $source
+}
 
 # Test if Git is not installed
 if (-Not (Get-Command "git" -ErrorAction SilentlyContinue))
