@@ -29,9 +29,14 @@ if (!(Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
 Write-Output "Sharing environment variables with WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 
-# Test if Git is installed
-if (Get-Command "git" -ErrorAction SilentlyContinue)
+# Test if Git is not installed
+if (-Not (Get-Command "git" -ErrorAction SilentlyContinue))
 {
+    Write-Output "Installing Git..."
+    winget install Git.Git
+}
+
+& {
     # Install .gitconfig
     Write-Output "Configuring Git..."
     $source = Join-Path "Git" ".gitconfig"
@@ -40,16 +45,17 @@ if (Get-Command "git" -ErrorAction SilentlyContinue)
     # Install .git-templates
     $source = Join-Path "Git" "templates"
     $null = New-Item -Path $HOME -Name ".git-templates" -ItemType SymbolicLink -Value $source -Force
-
-    if (!(Get-Command "delta" -ErrorAction SilentlyContinue))
-    {
-        # Install Delta
-        Write-Output "Installing Delta..."
-        winget install dandavison.delta
-    }
 }
 
-# Check if PowerToys is installed
+# Check if delta is not installed
+if (-Not (Get-Command "delta" -ErrorAction SilentlyContinue))
+{
+    # Install Delta
+    Write-Output "Installing Delta..."
+    winget install dandavison.delta
+}
+
+# Check if PowerToys is not installed
 # TODO: Suppress output of this command
 $process = Start-Process "winget" -ArgumentList "list --id Microsoft.PowerToys" -NoNewWindow -Wait -PassThru
 if ($process.ExitCode -ne 0)
@@ -71,7 +77,7 @@ function Get-Fonts {
     (New-Object System.Drawing.Text.InstalledFontCollection).Families
 }
 
-# Check if the JetBrainsMono font is installed
+# Check if the JetBrainsMono font not is installed
 if (-Not ((Get-Fonts) -contains "JetBrainsMonoNL NFM"))
 {
     # Create temp directory
