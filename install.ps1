@@ -55,6 +55,14 @@ if (-Not (Get-Command "delta" -ErrorAction SilentlyContinue))
     winget install dandavison.delta
 }
 
+# Check if Eza is not installed
+if (-Not (Get-Command "eza" -ErrorAction SilentlyContinue))
+{
+    # Install Eza
+    Write-Output "Installing Eza"
+    winget install eza-community.eza
+}
+
 # Check if PowerToys is not installed
 # TODO: Suppress output of this command
 $process = Start-Process "winget" -ArgumentList "list --id Microsoft.PowerToys" -NoNewWindow -Wait -PassThru
