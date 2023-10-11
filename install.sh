@@ -9,6 +9,7 @@ if ! hash brew 2> /dev/null
 then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    source ~/.profile
 fi
 
 if ! hash git 2> /dev/null
@@ -45,6 +46,7 @@ then
     if ! hash gpg 2> /dev/null
     then
         sudo apt install -y gpg
+        source ~/.profile
     fi
 
     sudo mkdir -p /etc/apt/keyrings
