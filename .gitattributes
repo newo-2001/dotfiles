@@ -1,2 +1,3 @@
 *.sh eol=lf
 Git/templates/hooks/* eol=lf
+Bash/* eol=lf

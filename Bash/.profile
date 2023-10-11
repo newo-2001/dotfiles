@@ -24,3 +24,5 @@ fi
 if command -v oh-my-posh > /dev/null; then
     eval "$(oh-my-posh init bash --config $POSH_THEMES_PATH/custom.omp.json)"
 fi
+
+alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale"

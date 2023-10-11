@@ -103,8 +103,8 @@ if (-Not ((Get-Fonts) -contains "JetBrainsMonoNL NFM"))
     $fontsDirectory = Join-Path "temp" "JetBrainsMono"
     $userFontsDirectory = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "Windows", "Fonts")
     $fontFilter = "^JetBrainsMonoNLNerdFontMono-[A-Za-z]+.ttf$"
-
     $fonts = Get-ChildItem -Path $fontsDirectory -Name | Where-Object { $_ -match $fontFilter }
+
     foreach ($font in $fonts)
     {
         # Copy file to user fonts directory

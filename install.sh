@@ -5,13 +5,13 @@ echo "Configuring Bash..."
 ln -sf $(realpath "Bash/.bashrc") ~/.bashrc
 ln -sf $(realpath "Bash/.profile") ~/.profile 
 
-if ! hash brew
+if ! hash brew 2> /dev/null
 then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if ! hash git
+if ! hash git 2> /dev/null
 then
     echo "Installing Git..."
     apt-get install -y git
@@ -19,15 +19,16 @@ fi
 
 echo "Configuring Git..."
 ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
+# Creates extra link in current directory for some reason
 ln -sf $(realpath "Git/templates") ~/.git-templates
 
-if ! hash delta
+if ! hash delta 2> /dev/null
 then
     echo "Installing Delta..."
     brew install git-delta
 fi
 
-if ! hash oh-my-posh
+if ! hash oh-my-posh 2> /dev/null 
 then
     echo "Installing Oh-My-Posh..."
     brew install jandedobbeleer/oh-my-posh/oh-my-posh
@@ -37,7 +38,7 @@ if ! hash eza 2> /dev/null
 then
     echo "Installing Eza..."
 
-    if ! hash gpg
+    if ! hash gpg 2> /dev/null
     then
         sudo apt install -y gpg
     fi
