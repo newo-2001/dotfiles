@@ -1,4 +1,4 @@
-$WSL_ENV = "USERPROFILE/up:POSH_THEMES_PATH/up"
+$WSL_ENV = "USERPROFILE/up"
 
 # Disable progress bars
 $ProgressPreference = "SilentlyContinue"
@@ -30,7 +30,7 @@ Write-Output "Configuring WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 & {
     $source = Join-Path "WSL" ".wslconfig"
-    $null = New-Item -Path $Env:USERPROFILE -Name ".wslconfig" -ItemType SymbolicLink -Value $source
+    $null = New-Item -Path $Env:USERPROFILE -Name ".wslconfig" -ItemType SymbolicLink -Value $source -Force
 }
 
 # Test if Git is not installed

@@ -34,6 +34,10 @@ then
     brew install jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
+echo "Configuring Oh-My-Posh..."
+mkdir -p ~/.omp
+ln -sf $(realpath "Oh-My-Posh/custom.omp.json") ~/.omp/custom.omp.json
+
 if ! hash eza 2> /dev/null
 then
     echo "Installing Eza..."

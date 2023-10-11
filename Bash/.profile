@@ -22,7 +22,7 @@ fi
 
 # Use custom Oh-My-Posh prompt
 if command -v oh-my-posh > /dev/null; then
-    eval "$(oh-my-posh init bash --config $POSH_THEMES_PATH/custom.omp.json)"
+    eval "$(oh-my-posh init bash --config ~/.omp/custom.omp.json)"
 fi
 
 alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale"
