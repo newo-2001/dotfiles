@@ -23,6 +23,15 @@ ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
 # Creates extra link in current directory for some reason
 ln -sf $(realpath "Git/templates") ~/.git-templates
 
+if [ ! -f ~/.gitconfig-user ];
+then
+    echo "This machine does not have a default git user, please enter the desired account details."
+    read -p "Default username: " username
+    read -p "Default email address: " email
+
+    echo -e "[user]\n\tname = $username\n\temail = $email" > ~/.gitconfig-user
+fi
+
 if ! hash delta 2> /dev/null
 then
     echo "Installing Delta..."

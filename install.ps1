@@ -11,7 +11,7 @@ $ProgressPreference = "SilentlyContinue"
     $null = New-Item -Path $mirror -Name "Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value $source -Force
 }
 
-if (!(Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
+if (-Not (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
 {
     # Install Oh-My-Posh
     Write-Output "Installing Oh-My-Posh..."
@@ -49,6 +49,22 @@ if (-Not (Get-Command "git" -ErrorAction SilentlyContinue))
     # Install .git-templates
     $source = Join-Path "Git" "templates"
     $null = New-Item -Path $HOME -Name ".git-templates" -ItemType SymbolicLink -Value $source -Force
+
+    # Prompt user to initialize default git account details
+    $userConfig = Join-Path $Env:USERPROFILE ".gitconfig-user"
+    if (-Not (Test-Path -Path $userConfig))
+    {
+        Write-Host "This machine does not have a default git user, please enter the desired account details."
+        $username = Read-Host -Prompt "Default username"
+        $email = Read-Host -Prompt "Default email address"
+
+        $null = New-Item -Path $Env:USERPROFILE -Name ".gitconfig-user"
+        Set-Content $userConfig @"
+[user]
+    name = $username
+    email = $email
+"@
+    }
 }
 
 # Check if delta is not installed
