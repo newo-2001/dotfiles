@@ -111,6 +111,16 @@
           "type": "node"
         },
         {
+          "background": "#be925f",
+          "foreground": "#193549",
+          "powerline_symbol": "",
+          "style": "powerline",
+          "templates": [
+            "  {{ .Full }} "
+          ],
+          "type": "rust"
+        },
+        {
           "background": "#fc7777",
           "foreground": "#193549",
           "powerline_symbol": "",
