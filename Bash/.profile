@@ -25,4 +25,11 @@ if command -v oh-my-posh > /dev/null; then
     eval "$(oh-my-posh init bash --config ~/.omp/custom.omp.json)"
 fi
 
+# Load Eza colors
+# Doesn't work under WSL, possibly due to eza failing to read extended file attributes
+scriptDir="$(cd "$(dirname -- "$0")" && pwd)"
+colorsFile="$scriptDir/Eza/colors.txt"
+EZA_COLORS="$(echo -n "$(<$colorsFile)" | sed -E '$!s/\r?$/:/' | tr -d \\r\\n)"
+export EZA_COLORS
+
 alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale"
