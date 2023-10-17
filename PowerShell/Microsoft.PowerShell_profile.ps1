@@ -27,5 +27,5 @@ $Env:EZA_COLORS = (Get-Content -Path $path) -split "\r\n" -join ':'
 
 function lst
 {
-    eza -lh --git --icons --no-permissions --no-user --no-time --color-scale
+    eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type
 }
