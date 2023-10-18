@@ -30,3 +30,4 @@
     fix = commit --amend --no-edit
     yeet = reset HEAD --hard
     pop = reset HEAD~1
+    stale = ls ^HEAD origin/HEAD
