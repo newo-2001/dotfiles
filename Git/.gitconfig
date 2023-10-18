@@ -31,4 +31,5 @@
     yeet = reset HEAD --hard
     pop = reset HEAD~1
     stale = ls ^HEAD origin/HEAD
+    forth = ls ^origin/HEAD HEAD
     staged = diff --staged
