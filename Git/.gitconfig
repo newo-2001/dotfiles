@@ -29,4 +29,4 @@
     graph = log --graph --all --pretty='format:%C(bold yellow)%h %C(reset)- %C(bold green)%ar %C(reset)by %C(bold cyan)%an%C(bold yellow)%d%C(reset)%n%C(white)%s'
     fix = commit --amend --no-edit
     yeet = reset HEAD --hard
-    wip = reset HEAD~1
+    pop = reset HEAD~1
