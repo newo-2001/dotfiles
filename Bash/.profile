@@ -27,8 +27,8 @@ fi
 
 # Load Eza colors
 # Doesn't work under WSL, possibly due to eza failing to read extended file attributes
-scriptDir="$(cd "$(dirname -- "$0")" && pwd)"
-colorsFile="$scriptDir/Eza/colors.txt"
+dotfilesRoot="$(dirname $(dirname $(readlink $HOME/.profile)))"
+colorsFile="$dotfilesRoot/Eza/colors.txt"
 EZA_COLORS="$(echo -n "$(<$colorsFile)" | sed -E '$!s/\r?$/:/' | tr -d \\r\\n)"
 export EZA_COLORS
 
