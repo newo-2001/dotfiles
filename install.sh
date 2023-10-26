@@ -20,8 +20,10 @@ fi
 
 echo "Configuring Git..."
 ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
-# Creates extra link in current directory for some reason
-ln -sf $(realpath "Git/templates") ~/.git-templates
+
+# Symlinking the entire templates directory results in creating a recursive link for some reason.
+mkdir -p ~/.git-templates/hooks
+ln -sf $(realpath "Git/templates/hooks/pre-push") ~/.git-templates/hooks/pre-push
 
 if [ ! -f ~/.gitconfig-user ];
 then
