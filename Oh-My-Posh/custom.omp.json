@@ -103,8 +103,7 @@
           "style": "powerline",
           "templates": [
             "  ",
-            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2 \") .Artist) \"\" }}",
-            " - ",
+            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2  \") (list .Artist \" - \") | join \"\") \"\" }}",
             "{{ replaceP .Var.Spotify.SongRegex .Track \"\" }} "
           ],
           "type": "spotify"
