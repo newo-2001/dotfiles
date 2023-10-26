@@ -76,7 +76,7 @@
         },
         {
           "background": "#f5f263",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "properties": {
             "fetch_upstream_icon": true,
@@ -98,7 +98,7 @@
         },
         {
           "background": "#b3de6e",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
           "templates": [
@@ -110,7 +110,7 @@
         },
         {
           "background": "#9bc2ff",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
           "template": "  {{ .Name }} ",
@@ -118,7 +118,7 @@
         },
         {
           "background": "#6CA35E",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
           "templates": [
@@ -130,7 +130,7 @@
         },
         {
           "background": "#be925f",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
           "templates": [
@@ -140,7 +140,7 @@
         },
         {
           "background": "#fc7777",
-          "foreground": "#193549",
+          "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
           "type": "status",
