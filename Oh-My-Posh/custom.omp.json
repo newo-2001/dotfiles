@@ -15,9 +15,12 @@
         {
           "background_templates": [
             "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
-            "{{ if contains .OS \"ubuntu\" }}#ff7441{{ end }}"
+            "{{ if contains .OS \"ubuntu\" }}#ff8457{{ end }}"
           ],
-          "foreground": "#193549",
+          "foreground_templates": [
+            "{{ if contains .OS \"windows\" }}#193549{{ end }}",
+            "{{ if contains .OS \"ubuntu\" }}#ffffff{{ end }}"
+          ],
           "leading_diamond": "",
           "style": "diamond",
           "template": "{{ .Icon }} ",
@@ -32,7 +35,10 @@
         },
         {
           "background": "parentBackground",
-          "foreground": "#193549",
+          "foreground_templates": [
+            "{{ if contains .OS \"windows\" }}#193549{{ end }}",
+            "{{ if contains .OS \"ubuntu\" }}#ffffff{{ end }}"
+          ],
           "properties": {
             "time_format": "15:04"
           },
