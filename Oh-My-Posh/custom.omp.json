@@ -41,6 +41,19 @@
           "type": "time"
         },
         {
+          "background": "parentBackground",
+          "foreground": "parentForeground",
+          "style": "powerline",
+          "templates_logic": "first_match",
+          "templates": [
+            "{{ if ge .Percentage 75 }} {{ end }}",
+            "{{ if ge .Percentage 50 }} {{ end }}",
+            "{{ if ge .Percentage 25 }} {{ end }}",
+            " "
+          ],
+          "type": "battery"
+        },
+        {
           "background": "#ff92fd",
           "foreground": "#193549",
           "powerline_symbol": "",
