@@ -11,6 +11,7 @@
     "hexeditor.defaultEndianness": "little",
     "hexeditor.inspectorType": "aside",
     "editor.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
     "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
     "terminal.integrated.minimumContrastRatio": 1,
     "powershell.integratedConsole.showOnStartup": false,
