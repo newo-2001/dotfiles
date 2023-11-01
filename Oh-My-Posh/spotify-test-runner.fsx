@@ -1,5 +1,7 @@
-open System.IO
+#r "nuget: FSharp.Data"
+
 open FSharp.Core
+open FSharp.Data;
 open System.Text.RegularExpressions
 
 let remixRegex = Regex(@"(?:.+? )(?:[-–] (.+?) (?:[Rr]emix|REMIX)|[\(\[]([^\)\]]+?) (?:[Rr]emix|REMIX)[\)\]])(?:.*)")
@@ -34,11 +36,9 @@ let runTest (test: Test) =
     else Error(displayed)
 
 let results =
-    File.ReadLines(__SOURCE_DIRECTORY__ + "/spotify-tests.csv")
-    |> Seq.tail
-    |> Seq.map (fun line -> line.Split(','))
-    |> Seq.map(fun columns ->
-        match columns with
+    CsvFile.Load(__SOURCE_DIRECTORY__ + "/spotify-tests.csv").Rows
+    |> Seq.map(fun row ->
+        match row.Columns with
         | [| artist; title; expected |] ->
             {
                 artist = artist;
