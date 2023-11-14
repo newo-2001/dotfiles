@@ -92,12 +92,16 @@ if ($process.ExitCode -ne 0)
     winget install Microsoft.PowerToys
 }
 
-# Create symlink for PowerToys keymap
+# Create symlinks for PowerToys
 & {
     Write-Output "Configuring Microsoft Powertoys..."
     $source = [IO.Path]::Combine("PowerToys", "KeyboardManager", "default.json")
     $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "PowerToys", "Keyboard Manager")
     $null = New-Item -Path $destination -Name "default.json" -ItemType SymbolicLink -Value $source -Force
+
+    $source = [IO.Path]::Combine("PowerToys", "FancyZones", "custom-layouts.json")
+    $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "PowerToys", "FancyZones")
+    $null = New-Item -Path $destination -Name "custom-layouts.json" -ItemType SymbolicLink -Value $source -Force
 }
 
 function Get-Fonts {
