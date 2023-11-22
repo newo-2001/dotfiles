@@ -4,7 +4,7 @@
   "var": {
     "Spotify": {
       "RemixRegex": "(?:.+? )(?:[-–] (.+?) (?:[Rr]emix|REMIX)|[\\(\\[]([^\\)\\]]+?) (?:[Rr]emix|REMIX)[\\)\\]])(?:.*)",
-      "ArtistRegex": " ?[\\(\\[（［][Cc][Vv][\\.:].+?[\\)\\]）］]",
+      "ArtistRegex": " ?([\\(\\[（［][Cc][Vv][\\.:].+?[\\)\\]）］]|&.*)",
       "SongRegex": " ?[\\[\\(（［]([^\\)\\]）］]*)[\\)\\]）］]| [-–] .*$"
     }
   },
@@ -103,7 +103,8 @@
           "style": "powerline",
           "templates": [
             "  ",
-            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2  \") (list .Artist \" - \") | join \"\") \"\" }}",
+            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2\") .Artist) \"\" }}",
+            "{{ matchP .Var.Spotify.RemixRegex .Track | ternary \"  \" \" - \"}}",
             "{{ replaceP .Var.Spotify.SongRegex .Track \"\" }} "
           ],
           "type": "spotify"

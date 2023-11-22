@@ -6,7 +6,7 @@ open System.Text.RegularExpressions
 
 let remixRegex = Regex(@"(?:.+? )(?:[-–] (.+?) (?:[Rr]emix|REMIX)|[\(\[]([^\)\]]+?) (?:[Rr]emix|REMIX)[\)\]])(?:.*)")
 let songRegex = Regex(@" ?[\[\(（［]([^\)\]）］]*)[\)\]）］]| [-–] .*$")
-let artistRegex = Regex(@" ?[\(\[（［][Cc][Vv][\.:].+?[\)\]）］]")
+let artistRegex = Regex(@" ?([\(\[（［][Cc][Vv][\.:]+?[\)\]）］]|&.*)")
 
 type Test = {
     artist: string;
