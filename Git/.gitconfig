@@ -34,3 +34,4 @@
     stale = ls ^HEAD origin/HEAD
     forth = ls ^origin/HEAD HEAD
     staged = diff --staged
+    unstage = restore --staged
