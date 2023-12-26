@@ -15,11 +15,13 @@
         {
           "background_templates": [
             "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
-            "{{ if contains .OS \"ubuntu\" }}#ff8457{{ end }}"
+            "{{ if contains .OS \"ubuntu\" }}#ff8457{{ end }}",
+	    "{{ if contains .OS \"debian\"}}#d70a53{{ end }}"
           ],
           "foreground_templates": [
             "{{ if contains .OS \"windows\" }}#193549{{ end }}",
-            "{{ if contains .OS \"ubuntu\" }}#ffffff{{ end }}"
+            "{{ if contains .OS \"ubuntu\" }}#ffffff{{ end }}",
+	    "{{ if contains .OS \"debian\" }}#ffffff{{ end }}"
           ],
           "leading_diamond": "",
           "style": "diamond",
