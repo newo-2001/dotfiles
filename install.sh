@@ -23,7 +23,7 @@ ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
 
 # Symlinking the entire templates directory results in creating a recursive link for some reason.
 mkdir -p ~/.git-templates/hooks
-ln -sf $(realpath "Git/templates/hooks/pre-push") ~/.git-templates/hooks/pre-push
+ln -sTf $(realpath "Git/templates/hooks/pre-push") ~/.git-templates/hooks/pre-push
 
 if [ ! -f ~/.gitconfig-user ];
 then
@@ -49,6 +49,9 @@ fi
 echo "Configuring Oh-My-Posh..."
 mkdir -p ~/.omp
 ln -sf $(realpath "Oh-My-Posh/custom.omp.json") ~/.omp/custom.omp.json
+
+echo "Configuring Neovim..."
+ln -sTf $(realpath "Neovim") ~/.config/nvim
 
 if ! hash eza 2> /dev/null
 then

@@ -33,3 +33,4 @@ EZA_COLORS="$(echo -n "$(<$colorsFile)" | sed -E '$!s/\r?$/:/' | tr -d \\r\\n)"
 export EZA_COLORS
 
 alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type"
+alias vim="nvim"
