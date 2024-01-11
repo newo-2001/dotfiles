@@ -21,5 +21,9 @@ return {
             lspconfig.lua_ls.setup({})
         end,
         dependencies = { "williamboman/mason-lspconfig.nvim" }
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        config = function() require("kanagawa").load("wave") end
     }
 }
