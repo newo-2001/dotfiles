@@ -8,7 +8,8 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls"
+                    "lua_ls",
+                    "texlab"
                 }
             })
         end,
@@ -18,7 +19,14 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})
+            local language_servers = {
+                "lua_ls",
+                "texlab"
+            }
+
+            for _, language_server in pairs(language_servers) do
+                lspconfig[language_server].setup({})
+            end
         end,
         dependencies = { "williamboman/mason-lspconfig.nvim" }
     },
