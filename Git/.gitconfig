@@ -4,8 +4,11 @@
 
 [core]
     pager = delta
-    autocrlf = true
+	autocrlf = true
     longpaths = true
+
+[includeIf "gitdir:/mnt/c/"]
+    autocrlf = false # Disable autocrlf for windows mounted repos under WSL
 
 [gpg]
     format = ssh
