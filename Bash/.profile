@@ -34,3 +34,10 @@ export EZA_COLORS
 
 alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type"
 alias vim="nvim"
+
+export NVM_DIR="$HOME/.nvm"
+
+# This loads nvm
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+# This loads nvm bash_completion
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"

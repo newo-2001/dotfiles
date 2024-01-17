@@ -1,6 +1,8 @@
 #!/bin/bash
 # This script is meant to install configurations relevant for Linux tools running under WSL
 
+. ~/.profile
+
 echo "Configuring Bash..."
 ln -sf $(realpath "Bash/.bashrc") ~/.bashrc
 ln -sf $(realpath "Bash/.profile") ~/.profile 
@@ -9,7 +11,7 @@ if ! hash brew 2> /dev/null
 then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    source ~/.profile
+    . ~/.profile
 fi
 
 if ! hash git 2> /dev/null
@@ -49,6 +51,18 @@ fi
 echo "Configuring Oh-My-Posh..."
 mkdir -p ~/.omp
 ln -sf $(realpath "Oh-My-Posh/custom.omp.json") ~/.omp/custom.omp.json
+
+if ! hash nvm 2> /dev/null
+then
+    echo "Installing NVM..."
+    brew install nvm
+fi
+
+if ! hash node 2> /dev/null
+then
+    echo "Installing Node.js"
+    nvm install node
+fi
 
 echo "Configuring Neovim..."
 ln -sTf $(realpath "Neovim") ~/.config/nvim
