@@ -7,3 +7,4 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true -- Indent newlines with tabs
 vim.opt.ignorecase = true -- Search case insensitive
 vim.opt.smartcase = true -- Except when using capitals
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard as default

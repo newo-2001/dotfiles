@@ -75,6 +75,14 @@ if (-Not (Get-Command "delta" -ErrorAction SilentlyContinue))
     winget install dandavison.delta
 }
 
+# Check if win32yank is not installed
+if (-Not (Get-Command "win32yank" -ErrorAction SilentlyContinue))
+{
+    # Install win32yank
+    Write-Output "Installing win32yank..."
+    winget install equalsraf.win32yank
+}
+
 # Check if Eza is not installed
 if (-Not (Get-Command "eza" -ErrorAction SilentlyContinue))
 {
