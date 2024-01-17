@@ -5,3 +5,5 @@ vim.opt.tabstop = 4 -- Tab size 4 spaces
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true -- Indent newlines with tabs
+vim.opt.ignorecase = true -- Search case insensitive
+vim.opt.smartcase = true -- Except when using capitals
