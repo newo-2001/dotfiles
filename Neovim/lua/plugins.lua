@@ -103,5 +103,15 @@ return {
 
             vim.keymap.set('n', "<C-T>", ":Neotree toggle<CR>")
         end
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        config = function() require("lualine").setup({
+            options = {
+                theme = "modus-vivendi",
+                globalstatus = true
+            }
+        }) end,
+        dependencies = { "nvim-tree/nvim-web-devicons" }
     }
 }
