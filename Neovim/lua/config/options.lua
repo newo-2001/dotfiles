@@ -8,3 +8,6 @@ vim.opt.autoindent = true -- Indent newlines with tabs
 vim.opt.ignorecase = true -- Search case insensitive
 vim.opt.smartcase = true -- Except when using capitals
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard as default
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.path = ".,**"
+vim.opt.pumheight = 10 -- Max number of items to show in popup window
