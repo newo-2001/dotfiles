@@ -46,7 +46,6 @@ return {
             vim.g.floaterm_height = 0.8
         end
     },
-    "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
@@ -76,5 +75,33 @@ return {
             })
         end,
         dependencies = { "L3MON4D3/LuaSnip" }
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim"
+        },
+        config = function()
+            require("neo-tree").setup({
+                close_if_last_window = true,
+                popup_border_style = "rounded",
+                filesystem = {
+                    follow_current_file = { enabled = true }
+                },
+                event_handlers = {
+                    {
+                        event = "file_opened",
+                        handler = function(file_path)
+                            require("neo-tree.command").execute({ action = "close" })
+                        end
+                    }
+                }
+            })
+
+            vim.keymap.set('n', "<C-T>", ":Neotree toggle<CR>")
+        end
     }
 }
