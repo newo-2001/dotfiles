@@ -9,7 +9,8 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "texlab"
+                    "texlab",
+                    "omnisharp"
                 }
             })
         end,
@@ -21,12 +22,19 @@ return {
             local lspconfig = require("lspconfig")
             local language_servers = {
                 "lua_ls",
-                "texlab"
+                "texlab",
             }
 
             for _, language_server in pairs(language_servers) do
                 lspconfig[language_server].setup({})
             end
+
+            lspconfig.omnisharp.setup({
+                enable_import_completion = true,
+                enable_roslyn_analyzers = true,
+                analyze_open_document_only = false,
+                cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" }
+            })
         end,
         dependencies = { "williamboman/mason-lspconfig.nvim" }
     },
