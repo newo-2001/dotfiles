@@ -116,12 +116,26 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        config = function() require("lualine").setup({
-            options = {
-                theme = "modus-vivendi",
-                globalstatus = true
+        config = function()
+            local custom_theme = require("lualine.themes.modus-vivendi")
+            local pink = "#dd81f0"
+            local white = "#eeeeee"
+            local gray = "#2f2f2f"
+            local lightgray = "#434343"
+
+            custom_theme.terminal = {
+                a = { bg = pink, fg = white, gui = "bold" },
+                b = { bg = lightgray, fg = pink },
+                c = { bg = gray, fg = white }
             }
-        }) end,
+
+            require("lualine").setup({
+                options = {
+                    theme = custom_theme,
+                    globalstatus = true
+                }
+            })
+        end,
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     {
