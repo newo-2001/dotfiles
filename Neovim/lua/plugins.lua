@@ -39,8 +39,10 @@ return {
         dependencies = { "williamboman/mason-lspconfig.nvim" }
     },
     {
-        "rebelot/kanagawa.nvim",
-        config = function() require("kanagawa").load("wave") end
+        "olimorris/onedarkpro.nvim",
+        config = function()
+            vim.cmd("colorscheme onedark")
+        end
     },
     {
         "voldikss/vim-floaterm",
