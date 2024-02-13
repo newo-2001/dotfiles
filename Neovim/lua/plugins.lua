@@ -165,5 +165,6 @@ return {
         end
     },
     "nvim-telescope/telescope-ui-select.nvim",
-    "ionide/Ionide-vim"
+    "ionide/Ionide-vim",
+    "airblade/vim-gitgutter"
 }
