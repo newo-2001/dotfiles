@@ -11,6 +11,7 @@ vim.opt.clipboard = "unnamedplus" -- Use system clipboard as default
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.path = ".,**" -- Allow searching nested directories for files
 vim.opt.pumheight = 10 -- Max number of items to show in popup window
+vim.opt.cmdheight = 0 -- Disable command area
 
 vim.diagnostic.config({
     underline = false, -- Disable underlining for diagnostic messages
