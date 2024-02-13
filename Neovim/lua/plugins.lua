@@ -65,6 +65,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     {
         "hrsh7th/nvim-cmp",
         config = function()
@@ -86,7 +87,8 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    { name = "path" }
+                    { name = "path" },
+                    { name = "nvim_lsp_signature_help" }
                 })
             })
         end,
@@ -166,5 +168,14 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
     "ionide/Ionide-vim",
-    "airblade/vim-gitgutter"
+    "airblade/vim-gitgutter",
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown"},
+        build = function() vim.fn["mkdp#util#install"]() end,
+        config = function()
+            vim.g.mkdp_theme = "dark"
+        end
+    }
 }
