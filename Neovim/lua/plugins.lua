@@ -112,7 +112,7 @@ return {
                 event_handlers = {
                     {
                         event = "file_opened",
-                        handler = function(file_path)
+                        handler = function()
                             require("neo-tree.command").execute({ action = "close" })
                         end
                     }
@@ -126,14 +126,14 @@ return {
         "nvim-lualine/lualine.nvim",
         config = function()
             local custom_theme = require("lualine.themes.modus-vivendi")
-            local colors = require("config.theme").colors
+            local theme = require("config.theme")
             local white = "#eeeeee"
             local gray = "#2f2f2f"
             local lightgray = "#434343"
 
             custom_theme.terminal = {
-                a = { bg = colors.pastel_pink, fg = colors.pastel_text, gui = "bold" },
-                b = { bg = lightgray, fg = colors.pastel_pink },
+                a = { bg = theme.colors.pastel_pink, fg = theme.colors.pastel_text, gui = "bold" },
+                b = { bg = lightgray, fg = theme.colors.pastel_pink },
                 c = { bg = gray, fg = white }
             }
 
@@ -141,6 +141,26 @@ return {
                 options = {
                     theme = custom_theme,
                     globalstatus = true
+                },
+                sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = {
+                        "branch",
+                        "diff",
+                        {
+                            "diagnostics",
+                            symbols = {
+                                error = theme.icons.error,
+                                warn = theme.icons.warn,
+                                info = theme.icons.info,
+                                hint = theme.icons.hint
+                            }
+                        }
+                    },
+                    lualine_c = { "searchcount" },
+                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_y = { "location", "progress" },
+                    lualine_z = { "datetime" }
                 }
             })
         end,
