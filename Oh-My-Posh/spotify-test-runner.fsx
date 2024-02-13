@@ -1,51 +1,83 @@
 #r "nuget: FSharp.Data"
 
 open FSharp.Core
-open FSharp.Data;
+open FSharp.Data
 open System.Text.RegularExpressions
 
 let remixRegex = Regex(@"(?:.+ )(?:[-–] (.+) (?:[Rr]emix|REMIX)|[\(\[]([^\)\]]+) (?:[Rr]emix|REMIX)[\)\]])(?:.*)")
 let songRegex = Regex(@" ?(\[.*\]|\(.*\)|（.*）|［.*］|-.+-|~.+~|–.+–)| [-–~:\|] .*")
 let artistRegex = Regex(@" ?([\(\[（［][Cc][Vv][\.:].+[\)\]）］]|&.*)")
 
+type ParsedSong = {
+    artist: string;
+    title: string;
+    remix: bool;
+}
+
+let displaySong song =
+    let seperator = if song.remix then '' else '-'
+    $"{song.artist} {seperator} {song.title}"
+
 type Test = {
     artist: string;
     title: string;
-    expected: string;
+    expected: ParsedSong;
 };
 
 let runTest (test: Test) =
-    let artist: string =
+    let remix, artist =
         let matches = remixRegex.Match(test.title)
 
-        if not matches.Success then test.artist
-        else
-            seq { for group in matches.Groups do yield group }
-            |> Seq.tail
-            |> Seq.choose (fun group ->
-                seq { for capture in group.Captures do yield capture.Value }
-                |> Seq.tryLast
-            )
-            |> Seq.reduce (fun x y -> $"{x}{y}")
-        |> fun artist -> artistRegex.Replace(artist, "")
+        let artist =
+            if not matches.Success then test.artist
+            else
+                seq { for group in matches.Groups do yield group }
+                |> Seq.tail
+                |> Seq.choose (fun group ->
+                    seq { for capture in group.Captures do yield capture.Value }
+                    |> Seq.tryLast
+                )
+                |> Seq.reduce (fun x y -> $"{x}{y}")
+            |> fun artist -> artistRegex.Replace(artist, "")
 
-    let song = songRegex.Replace(test.title, "")
-    let displayed = $"{artist} - {song}"
+        matches.Success, artist
+
+    let title = songRegex.Replace(test.title, "")
+    let actual = {
+        artist = artist;
+        title = title;
+        remix = remix;
+    }
     
-    if displayed = test.expected then Ok(())
-    else Error(displayed)
+    if actual = test.expected then Ok(())
+    else Error(actual)
+
+let parseBool str =
+    match str with
+    | "true" -> true
+    | "false" -> false
+    | _ -> failwith "Expected boolean"
 
 let results =
     CsvFile.Load(__SOURCE_DIRECTORY__ + "/spotify-tests.csv").Rows
     |> Seq.map(fun row ->
         match row.Columns with
-        | [| artist; title; expected |] ->
+        | [| artist; title; expected; remix |] ->
+            let parsed =
+                match expected.Split(" - ") with
+                | [| artist; title |] ->
+                    {
+                        artist = artist;
+                        title = title;
+                        remix = parseBool remix
+                    }
+                | _ -> failwith $"Invalid expected output: {expected}"
             {
                 artist = artist;
                 title = title;
-                expected = expected;
+                expected = parsed;
             }
-        | _ -> failwith "Invalid row in input"
+        | _ -> failwith $"Invalid row in input: {row.ToString()}"
     )
     |> Seq.map (fun test -> (test, runTest test))
     |> Seq.toList
@@ -61,7 +93,7 @@ let failedTests =
     |> Seq.toList
 
 for test, result in failedTests do
-    printf "Test failed:\n\tInput: %s - %s\n\tExpected: %s\n\tGot: %s\n\n" test.artist test.title test.expected result
+    printf "Test failed:\n\tInput: %s - %s\n\tExpected: %s\n\tGot: %s\n\n" test.artist test.title (displaySong test.expected) (displaySong result)
 
 let passedTests = totalTests - failedTests.Length
 printf "Summary: %i/%i tests passed\n" passedTests totalTests

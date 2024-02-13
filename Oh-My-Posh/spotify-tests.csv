@@ -1,41 +1,42 @@
-Artist,Title,Desired
-Pendulum,Crush,Pendulum - Crush
-Excision,Don't Look Down (Hold On),Excision - Don't Look Down
-ILLENIUM,Eyes Wide Shut (feat. Travis Barker) - Culture Code Remix,Culture Code - Eyes Wide Shut
-Puppet,Angry All The Time - Mazare Remix,Mazare - Angry All The Time
-Eir Aoi,IGNITE (Fairlane Remix) - SACRA BEATS Singles,Fairlane - IGNITE
-Shakira,Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song] (feat. Freshlyground),Shakira - Waka Waka
-Mili,world.execute (me) ;,Mili - world.execute (me) ;
-Grabbitz,"Another Form of ""Goodbye""","Grabbitz - Another Form of ""Goodbye"""
-Ephixa,Matches - Acoustic,Ephixa - Matches
-Kenshi Yonezu,灰色と青 ( + 菅田将暉 ),Kenshi Yonezu - 灰色と青
-ILLENIUM,Crashing (ft. Bahari) – Stripped,ILLENIUM - Crashing
-Seven Lions,Another Me (with Dylan Matthew) - Acoustic,Seven Lions - Another Me
-雪ノ下雪乃(CV.早見沙織)& 由比ヶ浜結衣(CV.東山奈央),ダイヤモンドの純度,雪ノ下雪乃 - ダイヤモンドの純度
-本間芽衣子（CV.茅野愛衣）,secret base ~君がくれたもの~ (10 years after Ver.),本間芽衣子 - secret base
-Yes,Roundabout - 2003 Remaster,Yes - Roundabout
-Hiroyuki Sawano,You See Big Girl / T:T,Hiroyuki Sawano - You See Big Girl / T:T
-アトラスサウンドチーム,I'll Face Myself(-Battle-),アトラスサウンドチーム - I'll Face Myself
-Conro,luv(drunk),Conro - luv
-Rival,Seasons - Futuristik & Whogaux Remix,Futuristik - Seasons
-Russell Brower,The Burning Legion [Main Title],Russell Brower - The Burning Legion
-RADWIMPS,Sparkle -original ver.-,RADWIMPS - Sparkle
-ILLENIUM,Good Things Fall Apart vs. Sad Songs (With Said The Sky feat. Annika Wells),ILLENIUM - Good Things Fall Apart vs. Sad Songs
-ILLENIUM,Lonely (with Chandler Leighton) [Friction Remix],Friction - Lonely
-LeaF,Calamity Fortune - Long Ver.,LeaF - Calamity Fortune
-由比ヶ浜結衣(CV.東山奈央),エブリデイワールド-Ballade Arrange-Yui Solo Ver.,由比ヶ浜結衣 - エブリデイワールド
-雪ノ下雪乃(CV.早見沙織)& 由比ヶ浜結衣(CV.東山奈央),ダイヤモンドの純度~Yui Ballade~,雪ノ下雪乃 - ダイヤモンドの純度
-Soda Sphere,"You And Me [Joysic, WildHearts & Zexnum Remix[",Joysic - You And Me
-Dion Timmer,Shiawase - VIP,Dion Timmer - Shiawase
-Camellia,Heart of Android : Even If It's Only By Mechanism,Camellia - Heart of Android
-Chime,Wait For Me - Au5 & Lomaximus Remix,Au5 - Wait For Me
-NURKO,"Blindspot, Pt. 1","NURKO - Blindspot, Pt. 1"
-Tritonal,Safe & Sound,Tritonal - Safe & Sound
-REMEDIOS,Last Train Home ~ still far,REMEDIOS - Last Train Home
-EGOIST,Departures 〜あなたにおくるアイの歌〜 -Instrumental-,EGOIST - Departures
-物語シリーズ,「プラチナむかつく」,物語シリーズ - プラチナむかつく
-DEQUAR,You-Destructive,DEQUAR - You-Destructive
-(K)NoW_NAME,starlight,(K)NoW_NAME - starlight
-彩音,いつもこの場所で - Instrumental- symphonic ver.,彩音 - いつもこの場所で
-椎名まゆり(cv.花澤香菜),星の奏でる歌 - Duet Ver.,椎名まゆり - 星の奏でる歌
-NIYARI計画,花の唄「Fate/stay night [Heaven's Feel]I.presage flower ORIGINAL COVER,NIYARI計画 - 花の唄
+Artist,Title,Expected,Remix
+Pendulum,Crush,Pendulum - Crush,false
+Excision,Don't Look Down (Hold On),Excision - Don't Look Down,false
+ILLENIUM,Eyes Wide Shut (feat. Travis Barker) - Culture Code Remix,Culture Code - Eyes Wide Shut,true
+Puppet,Angry All The Time - Mazare Remix,Mazare - Angry All The Time,true
+Eir Aoi,IGNITE (Fairlane Remix) - SACRA BEATS Singles,Fairlane - IGNITE,true
+Shakira,Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song] (feat. Freshlyground),Shakira - Waka Waka,false
+Mili,world.execute (me) ;,Mili - world.execute (me) ;,false
+Grabbitz,"Another Form of ""Goodbye""","Grabbitz - Another Form of ""Goodbye""",false
+Ephixa,Matches - Acoustic,Ephixa - Matches,false
+Kenshi Yonezu,灰色と青 ( + 菅田将暉 ),Kenshi Yonezu - 灰色と青,false
+ILLENIUM,Crashing (ft. Bahari) – Stripped,ILLENIUM - Crashing,false
+Seven Lions,Another Me (with Dylan Matthew) - Acoustic,Seven Lions - Another Me,false
+雪ノ下雪乃(CV.早見沙織)& 由比ヶ浜結衣(CV.東山奈央),ダイヤモンドの純度,雪ノ下雪乃 - ダイヤモンドの純度,false
+本間芽衣子（CV.茅野愛衣）,secret base ~君がくれたもの~ (10 years after Ver.),本間芽衣子 - secret base,false
+Yes,Roundabout - 2003 Remaster,Yes - Roundabout,false
+Hiroyuki Sawano,You See Big Girl / T:T,Hiroyuki Sawano - You See Big Girl / T:T,false
+アトラスサウンドチーム,I'll Face Myself(-Battle-),アトラスサウンドチーム - I'll Face Myself,false
+Conro,luv(drunk),Conro - luv,false
+Rival,Seasons - Futuristik & Whogaux Remix,Futuristik - Seasons,true
+Russell Brower,The Burning Legion [Main Title],Russell Brower - The Burning Legion,false
+RADWIMPS,Sparkle -original ver.-,RADWIMPS - Sparkle,false
+ILLENIUM,Good Things Fall Apart vs. Sad Songs (With Said The Sky feat. Annika Wells),ILLENIUM - Good Things Fall Apart vs. Sad Songs,false
+ILLENIUM,Lonely (with Chandler Leighton) [Friction Remix],Friction - Lonely,true
+LeaF,Calamity Fortune - Long Ver.,LeaF - Calamity Fortune,false
+由比ヶ浜結衣(CV.東山奈央),エブリデイワールド-Ballade Arrange-Yui Solo Ver.,由比ヶ浜結衣 - エブリデイワールド,false
+雪ノ下雪乃(CV.早見沙織)& 由比ヶ浜結衣(CV.東山奈央),ダイヤモンドの純度~Yui Ballade~,雪ノ下雪乃 - ダイヤモンドの純度,false
+Soda Sphere,"You And Me [Joysic, WildHearts & Zexnum Remix[",Joysic - You And Me,true
+Dion Timmer,Shiawase - VIP,Dion Timmer - Shiawase,false
+Camellia,Heart of Android : Even If It's Only By Mechanism,Camellia - Heart of Android,false
+Chime,Wait For Me - Au5 & Lomaximus Remix,Au5 - Wait For Me,true
+NURKO,"Blindspot, Pt. 1","NURKO - Blindspot, Pt. 1",false
+Tritonal,Safe & Sound,Tritonal - Safe & Sound,false
+REMEDIOS,Last Train Home ~ still far,REMEDIOS - Last Train Home,false
+EGOIST,Departures 〜あなたにおくるアイの歌〜 -Instrumental-,EGOIST - Departures,false
+物語シリーズ,「プラチナむかつく」,物語シリーズ - プラチナむかつく,false
+DEQUAR,You-Destructive,DEQUAR - You-Destructive,false
+(K)NoW_NAME,starlight,(K)NoW_NAME - starlight,false
+彩音,いつもこの場所で - Instrumental- symphonic ver.,彩音 - いつもこの場所で,false
+椎名まゆり(cv.花澤香菜),星の奏でる歌 - Duet Ver.,椎名まゆり - 星の奏でる歌,false
+NIYARI計画,花の唄「Fate/stay night [Heaven's Feel]I.presage flower ORIGINAL COVER,NIYARI計画 - 花の唄,false
+dj-Jo,Diamond no Jundo - Remix,dj-Jo - Diamond no Jundo,true
