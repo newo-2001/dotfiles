@@ -12,6 +12,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.path = ".,**" -- Allow searching nested directories for files
 vim.opt.pumheight = 10 -- Max number of items to show in popup window
 vim.opt.cmdheight = 0 -- Disable command area
+vim.opt.showtabline = 2 -- Always show tabline
 
 vim.diagnostic.config({
     underline = false, -- Disable underlining for diagnostic messages

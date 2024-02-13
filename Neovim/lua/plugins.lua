@@ -126,14 +126,14 @@ return {
         "nvim-lualine/lualine.nvim",
         config = function()
             local custom_theme = require("lualine.themes.modus-vivendi")
-            local pink = "#dd81f0"
+            local colors = require("config.theme").colors
             local white = "#eeeeee"
             local gray = "#2f2f2f"
             local lightgray = "#434343"
 
             custom_theme.terminal = {
-                a = { bg = pink, fg = white, gui = "bold" },
-                b = { bg = lightgray, fg = pink },
+                a = { bg = colors.pastel_pink, fg = colors.pastel_text, gui = "bold" },
+                b = { bg = lightgray, fg = colors.pastel_pink },
                 c = { bg = gray, fg = white }
             }
 
@@ -176,6 +176,15 @@ return {
         build = function() vim.fn["mkdp#util#install"]() end,
         config = function()
             vim.g.mkdp_theme = "dark"
+        end
+    },
+    {
+        "seblj/nvim-tabline",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("tabline").setup({
+                color_all_icons = true
+            })
         end
     }
 }
