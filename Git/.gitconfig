@@ -32,6 +32,9 @@
 [init]
     templatedir = ~/.git-templates
 
+[rerere]
+    enabled = true
+
 [alias]
     ls = log --pretty='format:%C(bold yellow)%h %C(reset)- %C(bold green)%ar %C(reset)by %C(bold cyan)%an%C(bold yellow)%d%C(reset) %C(white)%s'
     graph = log --graph --all --pretty='format:%C(bold yellow)%h %C(reset)- %C(bold green)%ar %C(reset)by %C(bold cyan)%an%C(bold yellow)%d%C(reset)%n%C(white)%s'
