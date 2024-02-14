@@ -4,9 +4,9 @@ open FSharp.Core
 open FSharp.Data
 open System.Text.RegularExpressions
 
-let remixRegex = Regex(@"(?:.+ )(?:[-–] (.+) (?:[Rr]emix|REMIX)|[\(\[]([^\)\]]+) (?:[Rr]emix|REMIX)[\)\]])(?:.*)")
-let songRegex = Regex(@" ?(\[.*\]|\(.*\)|（.*）|［.*］|-.+-|~.+~|–.+–)| [-–~:\|] .*")
-let artistRegex = Regex(@" ?([\(\[（［][Cc][Vv][\.:].+[\)\]）］]|&.*)")
+let remixRegex = Regex(@".* (?:[-–] (?:(.*) )?(?:remix)|[(（［[](?:([^)\]）］]*) )?(?:remix)[)\]）］]).*", RegexOptions.IgnoreCase)
+let artistRegex = Regex(@" ?([([（［]cv[.:] ?.+[)\]）］]|&.*)", RegexOptions.IgnoreCase)
+let songRegex = Regex(@" ?((\[.*\]|\(.*\)|（.*）|［.*］|-.+-|–.+–|~.+~|～.+～)| [-–~～:|] ).*")
 
 type ParsedSong = {
     artist: string;
@@ -31,13 +31,16 @@ let runTest (test: Test) =
         let artist =
             if not matches.Success then test.artist
             else
-                seq { for group in matches.Groups do yield group }
-                |> Seq.tail
-                |> Seq.choose (fun group ->
-                    seq { for capture in group.Captures do yield capture.Value }
-                    |> Seq.tryLast
-                )
-                |> Seq.reduce (fun x y -> $"{x}{y}")
+                let captures =
+                    seq { for group in matches.Groups do yield group }
+                    |> Seq.tail
+                    |> Seq.choose (fun group ->
+                        seq { for capture in group.Captures do yield capture.Value }
+                        |> Seq.tryLast
+                    )
+                
+                if Seq.isEmpty captures then test.artist
+                else String.concat "" captures
             |> fun artist -> artistRegex.Replace(artist, "")
 
         matches.Success, artist

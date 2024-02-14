@@ -3,9 +3,9 @@
   "patch_pwsh_bleed": true,
   "var": {
     "Spotify": {
-      "RemixRegex": "(?:.+ )(?:[-–] (.+) (?:[Rr]emix|REMIX)|[\\(\\[]([^\\)\\]]+) (?:[Rr]emix|REMIX)[\\)\\]])(?:.*)",
-      "ArtistRegex": " ?([\\(\\[（［][Cc][Vv][\\.:].+[\\)\\]）］]|&.*)",
-      "SongRegex": " ?(\\[.*\\]|\\(.*\\)|（.*）|［.*］|-.+-|~.+~|–.+–)| [-–~:\\|] .*"
+      "RemixRegex": "(?i).* (?:[-–] (?:(.*) )?(?:remix)|[(（［[](?:([^)\\]）］]*) )?(?:remix)[)\\]）］]).*",
+      "ArtistRegex": "(?i) ?([([（［]cv[.:] ?.+[)\\]）］]|&.*)",
+      "SongRegex": " ?((\\[.*\\]|\\(.*\\)|（.*）|［.*］|-.+-|–.+–|~.+~|～.+～)| [-–~～:|] ).*"
     }
   },
   "blocks": [
@@ -16,12 +16,12 @@
           "background_templates": [
             "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
             "{{ if contains .OS \"ubuntu\" }}#ff8457{{ end }}",
-	    "{{ if contains .OS \"debian\"}}#d70a53{{ end }}"
+	          "{{ if contains .OS \"debian\"}}#d70a53{{ end }}"
           ],
           "foreground_templates": [
             "{{ if contains .OS \"windows\" }}#193549{{ end }}",
             "{{ if contains .OS \"ubuntu\" }}#ffffff{{ end }}",
-	    "{{ if contains .OS \"debian\" }}#ffffff{{ end }}"
+            "{{ if contains .OS \"debian\" }}#ffffff{{ end }}"
           ],
           "leading_diamond": "",
           "style": "diamond",
@@ -105,8 +105,8 @@
           "style": "powerline",
           "templates": [
             "  ",
-            "{{ replaceP .Var.Spotify.ArtistRegex (matchP .Var.Spotify.RemixRegex .Track | ternary (replaceP .Var.Spotify.RemixRegex .Track \"$1$2\") .Artist) \"\" }}",
-            "{{ matchP .Var.Spotify.RemixRegex .Track | ternary \"  \" \" - \"}}",
+            "{{ replaceP .Var.Spotify.ArtistRegex (ternary (default .Artist (regexReplaceAll .Var.Spotify.RemixRegex .Track \"$1$2\")) .Artist (matchP .Var.Spotify.RemixRegex .Track)) \"\" }}",
+            "{{ ternary \"  \" \" - \" (matchP .Var.Spotify.RemixRegex .Track) }}",
             "{{ replaceP .Var.Spotify.SongRegex .Track \"\" }} "
           ],
           "type": "spotify"
@@ -136,9 +136,7 @@
           "foreground": "parentForeground",
           "powerline_symbol": "",
           "style": "powerline",
-          "templates": [
-            "  {{ .Full }} "
-          ],
+          "template": "  {{ .Full }} ",
           "type": "rust"
         },
         {
@@ -147,11 +145,7 @@
           "powerline_symbol": "",
           "style": "powerline",
           "type": "status",
-          "templates_logic": "first_match",
-          "templates": [
-            "{{ if eq .Code 1 }}  {{ end }}",
-            "{{ if ne .Code 0 }} {{ .Code }} {{ end }}"
-          ]
+          "template": "{{ if ne .Code 0 }}  {{ end }}"
         }
       ],
       "type": "prompt"
