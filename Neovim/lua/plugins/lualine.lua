@@ -39,10 +39,10 @@ return {
                     {
                         "diagnostics",
                         symbols = {
-                            error = theme.icons.error,
-                            warn = theme.icons.warn,
-                            info = theme.icons.info,
-                            hint = theme.icons.hint
+                            error = theme.icons.error .. ' ',
+                            warn = theme.icons.warn .. ' ',
+                            info = theme.icons.info .. ' ',
+                            hint = theme.icons.hint .. ' '
                         }
                     }
                 },
