@@ -188,7 +188,6 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
     "ionide/Ionide-vim",
-    "airblade/vim-gitgutter",
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

@@ -1,8 +1,10 @@
 local colors = {
-    pastel_pink = "#fca9f8",
-    pastel_text = "#383838"
+    pink = "#fca9f8",
+    green = "#73a942",
+    red = "#fd7272",
+    orange = "#ff9105",
+    text_dark = "#383838"
 }
-
 local icons = {
     error = "",
     warn = "",
@@ -11,7 +13,11 @@ local icons = {
 }
 
 local function onColorSchemeChange()
-    vim.api.nvim_set_hl(0, "TabLineSel", { bg = colors.pastel_pink, fg = colors.pastel_text })
+    vim.api.nvim_set_hl(0, "TabLineSel", { bg = colors.pink, fg = colors.text_dark })
+
+    vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = colors.green })
+    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.orange })
+    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.red })
 end
 
 return {
