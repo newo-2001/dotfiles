@@ -1,4 +1,4 @@
-# Custom Neovim Cheatcheat
+# Custom Neovim Cheatsheet
 ## Mappings
 | Chord | Context | Action |
 | ----- | ----- | ----- |
@@ -11,9 +11,9 @@
 | `<Leader>hp` | Normal | <u>P</u>review git <u>H</u>unk |
 | `<Leader>hs` | Normal | <u>S</u>tage git <u>H</u>unk |
 | `<Leader>hu` | Normal | <u>U</u>ndo git <u>H</u>unk |
+| `<Leader>tt` | Normal | <u>T</u>oggle <u>t</u>erminal |
 | `<C-T>` | Normal | Toggle file <u>t</u>ree |
 | `<C-K>` | Normal | Show function signature |
-| `<C-L>` | Normal | Toggle terminal |
 | `<C-Enter>` | Insert | Focus autocomplete menu |
 
 ## Commands

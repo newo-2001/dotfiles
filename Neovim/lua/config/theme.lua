@@ -18,6 +18,9 @@ local function onColorSchemeChange()
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = colors.green })
     vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.orange })
     vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.red })
+
+    vim.api.nvim_set_hl(0, "Floaterm", { bg = "#212529" })
+    vim.api.nvim_set_hl(0, "FloatermBorder", { bg = "#212529" })
 end
 
 return {

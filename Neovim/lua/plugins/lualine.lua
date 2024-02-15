@@ -9,13 +9,13 @@ return {
         local custom_theme = require("lualine.themes.modus-vivendi")
         custom_theme.terminal = {
             a = {
-                bg = theme.colors.pastel_pink,
-                fg = theme.colors.pastel_text,
+                bg = theme.colors.pink,
+                fg = theme.colors.text_dark,
                 gui = "bold"
             },
             b = {
                 bg = lightgray,
-                fg = theme.colors.pastel_pink
+                fg = theme.colors.pink
             },
             c = {
                 bg = gray,
@@ -34,6 +34,7 @@ return {
                 },
                 lualine_b = {
                     "branch",
+                    require("lualine_sections.spotify"),
                     "diff",
                     {
                         "diagnostics",
