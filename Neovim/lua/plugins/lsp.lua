@@ -10,7 +10,8 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "texlab",
-                    "omnisharp"
+                    "omnisharp",
+                    "tsserver"
                 }
             })
         end,
@@ -23,7 +24,8 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local language_servers = {
                 "lua_ls",
-                "texlab"
+                "texlab",
+                "tsserver"
             }
 
             for _, language_server in pairs(language_servers) do
