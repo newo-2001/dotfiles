@@ -62,6 +62,7 @@ if ! hash nvm 2> /dev/null
 then
     echo "Installing NVM..."
     brew install nvm
+    source ~/.profile
 fi
 
 if ! hash node 2> /dev/null

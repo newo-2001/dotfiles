@@ -25,6 +25,13 @@ if (-Not (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
     $null = New-Item -Path $Env:POSH_THEMES_PATH -Name "custom.omp.json" -ItemType SymbolicLink -Value $source -Force
 }
 
+if (-Not (Get-Command "rg" -ErrorAction SilentlyContinue))
+{
+    # Install ripgrep
+    Write-Output "Installing ripgrep"
+    winget install BurntSushi.ripgrep.MSVC
+}
+
 # Configure WSL
 Write-Output "Configuring WSL..."
 [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
