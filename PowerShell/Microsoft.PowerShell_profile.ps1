@@ -29,3 +29,6 @@ function lst
 {
     eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type
 }
+
+Set-Alias vim nvim
+

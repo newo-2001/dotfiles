@@ -112,6 +112,12 @@ if ($process.ExitCode -ne 0)
     $null = New-Item -Path $destination -Name "custom-layouts.json" -ItemType SymbolicLink -Value $source -Force
 }
 
+# Create symlink for Neovim
+& {
+    Write-Output "Configuring Neovim..."
+    $null = New-Item -Path $Env:LOCALAPPDATA -Name "nvim" -ItemType SymbolicLink -Value "Neovim" -Force
+}
+
 function Get-Fonts {
     [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
     (New-Object System.Drawing.Text.InstalledFontCollection).Families
