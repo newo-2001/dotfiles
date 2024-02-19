@@ -52,6 +52,12 @@ echo "Configuring Oh-My-Posh..."
 mkdir -p ~/.omp
 ln -sf $(realpath "Oh-My-Posh/custom.omp.json") ~/.omp/custom.omp.json
 
+if ! hash zoxide 2> /dev/null
+then
+    echo "Installing zoxide..."
+    brew install zoxide
+fi
+
 if ! hash nvm 2> /dev/null
 then
     echo "Installing NVM..."

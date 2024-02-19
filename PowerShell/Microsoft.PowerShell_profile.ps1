@@ -21,6 +21,11 @@ if (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue)
     oh-my-posh init pwsh --config $theme | Invoke-Expression
 }
 
+if (Get-Command "zoxide" -ErrorAction SilentlyContinue)
+{
+    Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
+}
+
 $scriptDir = Split-Path (Get-RealScriptPath)
 $path = [IO.Path]::Combine($scriptDir, "..", "Eza", "colors.txt")
 $Env:EZA_COLORS = (Get-Content -Path $path) -split "\r\n" -join ':'

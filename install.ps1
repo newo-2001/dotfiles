@@ -91,6 +91,14 @@ if (-Not (Get-Command "eza" -ErrorAction SilentlyContinue))
     winget install eza-community.eza
 }
 
+# Check if zoxide is not installed
+if (-Not (Get-Command "zoxide" -ErrorAction SilentlyContinue))
+{
+    # Install zoxide
+    Write-Output "Installing zoxide"
+    winget install ajeetdsouza.zoxide
+}
+
 # Check if PowerToys is not installed
 # TODO: Suppress output of this command
 $process = Start-Process "winget" -ArgumentList "list --id Microsoft.PowerToys" -NoNewWindow -Wait -PassThru

@@ -25,6 +25,10 @@ if command -v oh-my-posh > /dev/null; then
     eval "$(oh-my-posh init bash --config ~/.omp/custom.omp.json)"
 fi
 
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init --cmd cd bash)"
+fi
+
 # Load Eza colors
 # Doesn't work under WSL, possibly due to eza failing to read extended file attributes
 dotfilesRoot="$(dirname $(dirname $(readlink $HOME/.profile)))"
