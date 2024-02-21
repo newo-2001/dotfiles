@@ -58,6 +58,12 @@ then
     brew install zoxide
 fi
 
+if ! hash fzf 2> /dev/null
+then
+    echo "Installing fzf..."
+    brew install fzf
+fi
+
 if ! hash nvm 2> /dev/null
 then
     echo "Installing NVM..."

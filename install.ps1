@@ -106,6 +106,14 @@ if (-Not (Get-Command "zoxide" -ErrorAction SilentlyContinue))
     winget install ajeetdsouza.zoxide
 }
 
+# Check if fzf is not installed
+if (-Not (Get-Command "fzf" -ErrorAction SilentlyContinue))
+{
+    # Install fzf
+    Write-Output "Installing fzf"
+    winget install fzf
+}
+
 # Check if PowerToys is not installed
 # TODO: Suppress output of this command
 $process = Start-Process "winget" -ArgumentList "list --id Microsoft.PowerToys" -NoNewWindow -Wait -PassThru
