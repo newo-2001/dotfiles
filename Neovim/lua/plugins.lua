@@ -4,7 +4,6 @@ return {
             vim.cmd("colorscheme onedark")
         end
     },
-    "ionide/Ionide-vim",
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

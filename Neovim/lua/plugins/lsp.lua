@@ -9,7 +9,6 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "texlab",
                     "omnisharp",
                     "tsserver"
                 }
@@ -24,7 +23,6 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local language_servers = {
                 "lua_ls",
-                "texlab",
                 "tsserver"
             }
 
@@ -53,5 +51,7 @@ return {
             require("lsp_signature").setup()
         end
     },
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh7th/cmp-nvim-lsp",
+    "ionide/Ionide-vim",
+    "lervag/vimtex"
 }

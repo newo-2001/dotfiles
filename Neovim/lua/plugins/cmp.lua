@@ -1,6 +1,7 @@
 return {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-omni",
     {
         "hrsh7th/nvim-cmp",
         config = function()
@@ -23,7 +24,8 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "path" },
-                    { name = "nvim_lsp_signature_help" }
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "omni" }
                 })
             })
         end,
