@@ -2,7 +2,11 @@ return {
     "lewis6991/gitsigns.nvim",
     config = function()
         local gitsigns = require("gitsigns");
-        gitsigns.setup();
+        gitsigns.setup({
+            preview_config = {
+                border = "rounded"
+            }
+        });
         
         vim.keymap.set('n', "<Leader>hp", gitsigns.preview_hunk)
         vim.keymap.set('n', "<Leader>hs", gitsigns.stage_hunk)
