@@ -11,6 +11,12 @@ return {
                     ["ui-select"] = {
                         require("telescope.themes").get_cursor()
                     }
+                },
+                defaults = {
+                    file_ignore_patterns = {
+                        "%.jpe?g$",
+                        "%.png$"
+                    }
                 }
             })
 
