@@ -10,6 +10,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "omnisharp",
+                    "texlab",
                     "tsserver"
                 }
             })
@@ -23,13 +24,12 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local language_servers = {
                 "lua_ls",
+                "texlab",
                 "tsserver"
             }
 
             for _, language_server in pairs(language_servers) do
-                lspconfig[language_server].setup({
-                    capabilities = capabilities
-                })
+                lspconfig[language_server].setup({ capabilities = capabilities })
             end
 
             lspconfig.omnisharp.setup({
@@ -37,7 +37,7 @@ return {
                 enable_import_completion = true,
                 enable_roslyn_analyzers = true,
                 analyze_open_document_only = false,
-                cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" }
+                cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" }
             })
         end,
         dependencies = {
