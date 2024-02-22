@@ -5,6 +5,7 @@ local colors = {
     orange = "#ff9105",
     text_dark = "#383838"
 }
+
 local icons = {
     error = "",
     warn = "",
@@ -21,6 +22,8 @@ local function onColorSchemeChange()
 
     vim.api.nvim_set_hl(0, "Floaterm", { bg = "#212529" })
     vim.api.nvim_set_hl(0, "FloatermBorder", { bg = "#212529" })
+
+    vim.api.nvim_set_hl(0, "CursorLineNR", { fg = colors.pink })
 
     local transparent = {}
     for _, group in pairs(transparent) do
