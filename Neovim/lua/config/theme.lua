@@ -22,10 +22,10 @@ local function onColorSchemeChange()
     vim.api.nvim_set_hl(0, "Floaterm", { bg = "#212529" })
     vim.api.nvim_set_hl(0, "FloatermBorder", { bg = "#212529" })
 
-    vim.api.nvim_set_hl(0, "Normal", { guibg = nil, ctermbg = nil })
-    vim.api.nvim_set_hl(0, "NonText", { guibg = nil, ctermbg = nil })
-    vim.api.nvim_set_hl(0, "SignColumn", { guibg = nil, ctermbg = nil })
-    vim.api.nvim_set_hl(0, "LineNr", { guibg = nil, ctermbg = nil })
+    local transparent = {}
+    for _, group in pairs(transparent) do
+        vim.api.nvim_set_hl(0, group, { guibg = nil, ctermbg = nil })
+    end
 end
 
 return {
