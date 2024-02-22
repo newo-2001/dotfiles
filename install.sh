@@ -64,6 +64,12 @@ then
     brew install fzf
 fi
 
+if ! hash ripgrep 2> /dev/null
+then
+    echo "Installing ripgrep..."
+    brew install ripgrep
+fi
+
 if ! hash nvm 2> /dev/null
 then
     echo "Installing NVM..."
