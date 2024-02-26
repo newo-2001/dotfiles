@@ -6,6 +6,8 @@ local function is_remix(track)
     local remix_patterns = {
         " [-–] (.*) [Rr]emix",
         " [-–] [Rr]emix",
+        " ?%((.-) ?[Rr]emix%)",
+        " ?%[(.-) ?[Rr]emix%]"
     }
 
     for _, pattern in pairs(remix_patterns) do
@@ -41,13 +43,13 @@ local function format_track(artist, track)
 
     -- Filter superfluous info from the track
     track = remove_patterns(track, {
-        "%(.*%)",
-        "%[.*%]",
+        " ?%(.*%)",
+        " ?%[.*%]",
         " [%-–~～:|] .*",
-        "%-.+%-",
-        "–.+–",
-        "~.+~",
-        "～.+～"
+        " ?%-.+%-",
+        " ?–.+–",
+        " ?~.+~",
+        " ?～.+～"
     })
 
     return artist .. (remixed and " 󰒟 " or " - ") .. track
