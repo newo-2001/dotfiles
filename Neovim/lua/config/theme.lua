@@ -25,6 +25,8 @@ local function onColorSchemeChange()
 
     vim.api.nvim_set_hl(0, "CursorLineNR", { fg = colors.pink })
 
+    vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#69A33E" })
+
     local transparent = {}
     for _, group in pairs(transparent) do
         vim.api.nvim_set_hl(0, group, { guibg = nil, ctermbg = nil })
