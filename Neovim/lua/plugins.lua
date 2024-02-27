@@ -21,5 +21,6 @@ return {
                 color_all_icons = true
             })
         end
-    }
+    },
+    "romainl/vim-qf"
 }

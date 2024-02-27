@@ -64,10 +64,17 @@ then
     brew install fzf
 fi
 
-if ! hash ripgrep 2> /dev/null
+if ! hash rg 2> /dev/null
 then
     echo "Installing ripgrep..."
     brew install ripgrep
+fi
+
+if ! hash latexmk 2> /dev/null
+then
+    echo "Installing latexmk and LaTeX packages..."
+    # texlive-fonts-extra pulls in ~2GB of bloat but there is no good way to install individual packages (T_T)
+    sudo apt install latexmk texlive-lang-european texlive-science texlive-plain-generic texlive-fonts-extra biber texlive-latex-extra --no-install-recommends
 fi
 
 if ! hash nvm 2> /dev/null

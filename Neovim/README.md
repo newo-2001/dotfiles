@@ -13,6 +13,9 @@
 | `<Leader>hu` | Normal | <u>U</u>ndo git <u>H</u>unk |
 | `<Leader>tt` | Normal | <u>T</u>oggle <u>t</u>erminal |
 | `<Leader>fg` | Normal | <u>F</u>ind <u>G</u>rep (find in files)|
+| `<Leader>ll` | Normal | <u>L</u>aTeX <u>L</u>ive preview |
+| `<leader>li` | Normal | <u>L</u>aTeX debug <u>I</u>nfo |
+| `<leader>lc` | Normal | <u>L</u>aTeX <u>C</u>lean |
 | `<C-T>` | Normal | Toggle file <u>t</u>ree |
 | `<C-K>` | Normal | Show function signature |
 | `<C-Enter>` | Insert | Focus autocomplete menu |

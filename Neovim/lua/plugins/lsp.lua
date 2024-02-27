@@ -51,7 +51,18 @@ return {
             require("lsp_signature").setup()
         end
     },
+    {
+        "lervag/vimtex",
+        config = function()
+            if vim.fn.has("WSL") then
+                vim.g.vimtex_view_general_viewer = vim.env.LOCALAPPDATA .. "/SumatraPDF/SumatraPDF.exe"
+                vim.g.vimtex_view_general_options = "-reuse-instance"
+            end
+
+            -- Disable quickfix menu when there are warnings but no errors
+            vim.g.vimtex_quickfix_open_on_warning = 1
+        end
+    },
     "hrsh7th/cmp-nvim-lsp",
-    "ionide/Ionide-vim",
-    "lervag/vimtex"
+    "ionide/Ionide-vim"
 }
