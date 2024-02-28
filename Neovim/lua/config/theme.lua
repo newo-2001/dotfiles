@@ -3,7 +3,10 @@ local colors = {
     green = "#73a942",
     red = "#fd7272",
     orange = "#ff9105",
-    text_dark = "#383838"
+    text_dark = "#383838",
+    neovim_blue = "#3E93D3",
+    neovim_green = "#69A33E",
+    snowy = "#f2f4ff"
 }
 
 local icons = {
@@ -24,8 +27,6 @@ local function onColorSchemeChange()
     vim.api.nvim_set_hl(0, "FloatermBorder", { bg = "#212529" })
 
     vim.api.nvim_set_hl(0, "CursorLineNR", { fg = colors.pink })
-
-    vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#69A33E" })
 
     local transparent = {}
     for _, group in pairs(transparent) do

@@ -38,8 +38,9 @@ return {
 
             telescope.load_extension("ui-select")
 
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+            vim.keymap.set('n', "<Leader>ff", builtin.find_files, {})
+            vim.keymap.set('n', "<Leader>fg", builtin.live_grep, {})
+            vim.keymap.set('n', "<Leader>fr", builtin.oldfiles, {})
         end
     },
     "nvim-telescope/telescope-ui-select.nvim"
