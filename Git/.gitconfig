@@ -7,7 +7,7 @@
     longpaths = true
     autocrlf = false
     eol = lf
-    editor = vim
+    editor = nvim
 
 [gpg]
     format = ssh
