@@ -60,7 +60,7 @@ return {
             end
 
             -- Disable quickfix menu when there are warnings but no errors
-            vim.g.vimtex_quickfix_open_on_warning = 1
+            vim.g.vimtex_quickfix_open_on_warning = 0
         end
     },
     "hrsh7th/cmp-nvim-lsp",
