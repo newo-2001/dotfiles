@@ -26,9 +26,9 @@ if (Get-Command "zoxide" -ErrorAction SilentlyContinue)
     Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 }
 
-$scriptDir = Split-Path (Get-RealScriptPath)
-$path = [IO.Path]::Combine($scriptDir, "..", "Eza", "colors.txt")
-$Env:EZA_COLORS = (Get-Content -Path $path) -split "\r\n" -join ':'
+$Env:DOTFILES = (Get-RealScriptPath) | Split-Path | Split-Path
+$ezaColorsPath = [IO.Path]::Combine($Env:DOTFILES, "Eza", "colors.txt")
+$Env:EZA_COLORS = (Get-Content -Path $ezaColorsPath) -split "\r\n" -join ':'
 
 function lst
 {
