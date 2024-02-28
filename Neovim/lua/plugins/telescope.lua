@@ -12,6 +12,22 @@ return {
                         require("telescope.themes").get_cursor()
                     }
                 },
+                pickers = {
+                    find_files = {
+                        find_command = {
+                            "rg",
+                            "--files",
+                            "--color=never",
+                            "--no-heading",
+                            "--with-filename",
+                            "--line-number",
+                            "--smart-case",
+                            "--hidden",
+                            "--glob",
+                            "!**/.git/*"
+                        }
+                    }
+                },
                 defaults = {
                     file_ignore_patterns = {
                         "%.jpe?g$",
