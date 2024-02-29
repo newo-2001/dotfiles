@@ -13,14 +13,5 @@ return {
             vim.g.mkdp_theme = "dark"
         end
     },
-    {
-        "seblj/nvim-tabline",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("tabline").setup({
-                color_all_icons = true
-            })
-        end
-    },
     "romainl/vim-qf"
 }

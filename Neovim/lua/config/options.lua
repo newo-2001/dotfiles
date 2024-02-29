@@ -17,6 +17,7 @@ vim.opt.pumheight = 10 -- Max number of items to show in popup window
 vim.opt.showtabline = 2 -- Always show tabline
 vim.opt.updatetime = 100 -- Faster updates on events
 vim.opt.signcolumn = "yes:2" -- Always show sign column for consistent width
+vim.opt.showtabline = 0 -- Disable tabline
 
 vim.diagnostic.config({
     underline = false, -- Disable underlining for diagnostic messages

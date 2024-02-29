@@ -73,6 +73,7 @@ return {
         margin = 5
     },
     layout = {
+        { type = "padding", val = 2 },
         header,
         { type = "padding", val = 1 },
         {

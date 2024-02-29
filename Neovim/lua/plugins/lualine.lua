@@ -34,6 +34,10 @@ return {
                 },
                 lualine_b = {
                     "branch",
+                    {
+                        "filename",
+                        file_status = false
+                    },
                     require("lualine_sections.spotify"),
                     "diff",
                     {
