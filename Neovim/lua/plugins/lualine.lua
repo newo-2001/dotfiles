@@ -35,12 +35,6 @@ return {
                 lualine_b = {
                     "branch",
                     {
-                        "filename",
-                        file_status = false
-                    },
-                    require("lualine_sections.spotify"),
-                    "diff",
-                    {
                         "diagnostics",
                         symbols = {
                             error = theme.icons.error .. ' ',
@@ -48,7 +42,9 @@ return {
                             info = theme.icons.info .. ' ',
                             hint = theme.icons.hint .. ' '
                         }
-                    }
+                    },
+                    "diff",
+                    require("lualine_sections.spotify"),
                 },
                 lualine_c = {
                     "searchcount"
