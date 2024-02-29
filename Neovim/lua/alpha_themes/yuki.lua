@@ -61,7 +61,11 @@ local version = vim.version()
 version = string.format("%d.%d.%d", version.major, version.minor, version.patch)
 
 local quotes = {
-    "A weapon from a more civilized age"
+    "A weapon from a more civilized age",
+    "I don't know everything, I just know what I know",
+    "Memento mori",
+    "Did you mean: emacs",
+    "Don't forget 3.oct.11"
 }
 
 return {

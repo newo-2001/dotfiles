@@ -1,24 +1,31 @@
 # Custom Neovim Cheatsheet
+Leader is `\`.
+
 ## Mappings
 | Chord | Context | Action |
 | ----- | ----- | ----- |
-| `<Leader>ff` | Normal | <u>F</u>ind <u>f</u>ile |
-| `<Leader>fr` | Normal | <u>F</u>ind <u>r</u>ecent file |
-| `<Leader>gd` | Normal | <u>G</u>o to symbol <u>d</u>efinition |
-| `<Leader>ca` | Normal | Open <u>c</u>ode <u>a</u>ctions menu |
-| `<Leader>dd` | Normal | <u>D</u>isplay <u>d</u>iagnostic |
-| `<Leader>dn` | Normal | <u>N</u>ext <u>d</u>iagnostic |
-| `<Leader>dp` | Normal | <u>P</u>revious <u>d</u>iagnostic |
-| `<Leader>hp` | Normal | <u>P</u>review git <u>h</u>unk |
-| `<Leader>hs` | Normal | <u>S</u>tage git <u>h</u>unk |
-| `<Leader>hu` | Normal | <u>U</u>ndo git <u>h</u>unk |
-| `<Leader>tt` | Normal | <u>T</u>oggle <u>t</u>erminal |
-| `<Leader>fg` | Normal | <u>F</u>ind <u>g</u>rep (find in files)|
-| `<Leader>ll` | Normal | <u>L</u>aTeX <u>L</u>ive preview |
-| `<leader>li` | Normal | <u>L</u>aTeX debug <u>i</u>nfo |
-| `<leader>lc` | Normal | <u>L</u>aTeX <u>c</u>lean |
-| `<C-T>` | Normal | Toggle file <u>t</u>ree |
-| `<C-K>` | Normal | Show function signature |
+| `<Leader>ff` | Normal | **F**ind **f**ile |
+| `<Leader>fr` | Normal | **F**ind **r**ecent file |
+| `<Leader>fg` | Normal | **F**ind **g**rep (find in files)|
+| `<Leader>gd` | Normal | **G**o to symbol **d**efinition |
+| `<Leader>ca` | Normal | Open **c**ode **a**ctions menu |
+| `<Leader>dd` | Normal | **D**isplay **d**iagnostic |
+| `<Leader>dn` | Normal | **N**ext **d**iagnostic |
+| `<Leader>dp` | Normal | **P**revious **d**iagnostic |
+| `<Leader>hp` | Normal | **P**review git **h**unk |
+| `<Leader>hs` | Normal | **S**tage git **h**unk |
+| `<Leader>hu` | Normal | **U**ndo git **h**unk |
+| `<Leader>tt` | Normal | **T**oggle **t**erminal |
+| `<Leader>ll` | Normal | **L**aTeX **L**ive preview |
+| `<Leader>li` | Normal | **L**aTeX debug **i**nfo |
+| `<Leader>lc` | Normal | **L**aTeX **c**lean |
+| `<C-t>` | Normal | Toggle file **t**ree |
+| `<C-k>` | Normal | Show function signature |
+| `<C-w> v` | Normal | Create **v**ertical split |
+| `<C-w> s` | Normal | Create horizontal **s**plit |
+| `<C-w> <Arrow>` | Normal | Move active window along the selected axis |
+| `<C-w> w` | Normal | Cycle through **w**indows |
+| `<C-w> x` | Normal | Rotate window locations |
 | `<C-Enter>` | Insert | Focus autocomplete menu |
 
 ## Commands
@@ -30,3 +37,8 @@
 | `:LspInfo` | Show status of the currently active language servers |
 | `:LspLog` | Open language server error log |
 | `:Inspect` | View the source of the color under the cursor |
+| `:q` | Close current window |
+| `:q!` | Force close current window |
+| `:w` | Save changes |
+| `:wq` | Save changes and close window |
+| `:cd` | Change root directory for session |
