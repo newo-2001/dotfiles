@@ -45,7 +45,7 @@ local function format_track(artist, track)
     track = remove_patterns(track, {
         " ?%(.*%)",
         " ?%[.*%]",
-        " [%-–~～:|] .*",
+        " [-–~～:|] .+",
         " ?%-.+%-",
         " ?–.+–",
         " ?~.+~",
@@ -67,16 +67,10 @@ local function update()
         on_exit = function()
             if output:find("^INFO") == nil then
                 for row in output:gmatch("[^\r\n]+") do
-                    for field in row:gmatch("[^,]+") do
-                        field = field:sub(2, #field - 1)
-
-                        local delim_start, delim_end = field:find(" %- ")
-                        if delim_end ~= nil then
-                            local artist = field:sub(1, delim_start - 1)
-                            local track = field:sub(delim_end + 1, #field)
-                            now_playing = "󰓇 " .. format_track(artist, track)
-                            return
-                        end
+                    local track, artist = row:reverse():match('(.+) %- (.-)",', 2)
+                    if track ~= nil then
+                        now_playing = "󰓇 " .. format_track(artist:reverse(), track:reverse())
+                        return
                     end
                 end
             end
