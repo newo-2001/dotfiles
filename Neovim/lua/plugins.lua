@@ -13,5 +13,9 @@ return {
             vim.g.mkdp_theme = "dark"
         end
     },
-    "romainl/vim-qf"
+    {
+        "brenoprata10/nvim-highlight-colors",
+        config = function() require("nvim-highlight-colors").setup() end
+    },
+    "romainl/vim-qf",
 }
