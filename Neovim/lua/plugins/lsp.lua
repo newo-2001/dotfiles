@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 return {
     {
         "williamboman/mason.nvim",
@@ -13,7 +11,9 @@ return {
                     "lua_ls",
                     "omnisharp",
                     "texlab",
-                    "tsserver"
+                    "tsserver",
+                    "jsonls",
+                    "yamlls"
                 }
             })
         end,
@@ -41,6 +41,32 @@ return {
                 analyze_open_document_only = false,
                 cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" }
             })
+
+            local schemastore = require("schemastore")
+            lspconfig.jsonls.setup({
+                capabilities = capabilities,
+                settings = {
+                    json = {
+                        validate = { enable = true },
+                        schemas = schemastore.json.schemas({
+                            extra = {}
+                        })
+                    }
+                }
+            })
+
+            lspconfig.yamlls.setup({
+                capabilities = capabilities,
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            enable = false,
+                            url = "",
+                        },
+                        schemas = schemastore.yaml.schemas()
+                    }
+                }
+            })
         end,
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
@@ -53,18 +79,7 @@ return {
             require("lsp_signature").setup()
         end
     },
-    {
-        "lervag/vimtex",
-        config = function()
-            if utils.isWSL() then
-                vim.g.vimtex_view_general_viewer = vim.env.LOCALAPPDATA .. "/SumatraPDF/SumatraPDF.exe"
-                vim.g.vimtex_view_general_options = "-reuse-instance"
-            end
-
-            -- Disable quickfix menu when there are warnings but no errors
-            vim.g.vimtex_quickfix_open_on_warning = 0
-        end
-    },
     "hrsh7th/cmp-nvim-lsp",
-    "ionide/Ionide-vim"
+    "ionide/Ionide-vim",
+    "b0o/SchemaStore.nvim"
 }
