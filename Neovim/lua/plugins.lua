@@ -1,10 +1,5 @@
 return {
     {
-        "olimorris/onedarkpro.nvim", config = function()
-            vim.cmd("colorscheme onedark")
-        end
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },

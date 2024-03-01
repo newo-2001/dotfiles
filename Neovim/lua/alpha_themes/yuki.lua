@@ -61,11 +61,9 @@ local version = vim.version()
 version = string.format("%d.%d.%d", version.major, version.minor, version.patch)
 
 local quotes = {
-    "A weapon from a more civilized age",
-    "I don't know everything, I just know what I know",
+    "An elegant weapon for a more civilized age",
     "Memento mori",
     "Did you mean: emacs",
-    "Don't forget 3.oct.11"
 }
 
 return {
@@ -90,7 +88,7 @@ return {
         {
             type = "text",
             val = {
-                vim.fn.strftime(" %Y-%m-%d   %T") .. "   " .. plugin_count .. " plugins   " .. version
+                vim.fn.strftime(" %Y-%m-%d   %H:%M") .. "   " .. plugin_count .. " plugins   " .. version
             },
             opts = {
                 position = "center",

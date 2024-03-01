@@ -1,31 +1,11 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
-        local theme = require("config.theme")
-        local white = "#eeeeee"
-        local gray = "#2f2f2f"
-        local lightgray = "#434343"
-
-        local custom_theme = require("lualine.themes.modus-vivendi")
-        custom_theme.terminal = {
-            a = {
-                bg = theme.colors.pink,
-                fg = theme.colors.text_dark,
-                gui = "bold"
-            },
-            b = {
-                bg = lightgray,
-                fg = theme.colors.pink
-            },
-            c = {
-                bg = gray,
-                fg = white
-            }
-        }
+        local icons = require("config.theme").icons
 
         require("lualine").setup({
             options = {
-                theme = custom_theme,
+                theme = "catppuccin",
                 globalstatus = true
             },
             sections = {
@@ -37,10 +17,10 @@ return {
                     {
                         "diagnostics",
                         symbols = {
-                            error = theme.icons.error .. ' ',
-                            warn = theme.icons.warn .. ' ',
-                            info = theme.icons.info .. ' ',
-                            hint = theme.icons.hint .. ' '
+                            error = icons.error .. ' ',
+                            warn = icons.warn .. ' ',
+                            info = icons.info .. ' ',
+                            hint = icons.hint .. ' '
                         }
                     },
                     "diff",
@@ -49,7 +29,8 @@ return {
                 lualine_c = {
                     "searchcount"
                 },
-                lualine_x = {
+                lualine_x = {},
+                lualine_y = {
                     "encoding",
                     {
                         "fileformat",
@@ -58,12 +39,7 @@ return {
                             mac = "LF",
                             dos = "CRLF"
                         }
-                    },
-                    "filetype"
-                },
-                lualine_y = {
-                    "location",
-                    "progress"
+                    }
                 },
                 lualine_z = {
                     "datetime"
