@@ -1,3 +1,0 @@
-*.sh eol=lf
-Git/**/* eol=lf
-Bash/* eol=lf

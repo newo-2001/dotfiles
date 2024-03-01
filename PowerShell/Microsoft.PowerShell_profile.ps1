@@ -36,4 +36,6 @@ function lst
 }
 
 Set-Alias vim nvim
-
+Set-Alias cat bat -Option AllScope
+Set-Alias ls lst -Option AllScope
+$Env:BAT_THEME = "Catppuccin-mocha"

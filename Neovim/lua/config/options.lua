@@ -18,19 +18,4 @@ vim.opt.showtabline = 2 -- Always show tabline
 vim.opt.updatetime = 100 -- Faster updates on events
 vim.opt.signcolumn = "yes:2" -- Always show sign column for consistent width
 vim.opt.showtabline = 0 -- Disable tabline
-
-vim.diagnostic.config({
-    underline = false, -- Disable underlining for diagnostic messages
-    virtual_text = {
-        prefix = ''
-    }
-})
-
-
--- Configure diagnostic icons in the sidebar
-local icons = require("config.theme").icons
-local signs = { Error = icons.error, Warn = icons.warn, Hint = icons.hint, Info = icons.info }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+vim.opt.fileformat = "unix"

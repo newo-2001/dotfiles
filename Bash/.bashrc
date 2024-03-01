@@ -64,3 +64,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+DOTFILES="$(dirname $(dirname $(readlink $HOME/.bashrc)))"
+export DOTFILES

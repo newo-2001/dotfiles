@@ -31,13 +31,15 @@ fi
 
 # Load Eza colors
 # Doesn't work under WSL, possibly due to eza failing to read extended file attributes
-dotfilesRoot="$(dirname $(dirname $(readlink $HOME/.profile)))"
-colorsFile="$dotfilesRoot/Eza/colors.txt"
+colorsFile="$DOTFILES/Eza/colors.txt"
 EZA_COLORS="$(echo -n "$(<$colorsFile)" | sed -E '$!s/\r?$/:/' | tr -d \\r\\n)"
 export EZA_COLORS
 
-alias lst="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type"
+alias ls="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type"
 alias vim="nvim"
+
+alias cat="bat"
+export BAT_THEME="Catppuccin-mocha"
 
 export NVM_DIR="$HOME/.nvm"
 

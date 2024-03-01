@@ -18,6 +18,7 @@ if ! hash git 2> /dev/null
 then
     echo "Installing Git..."
     apt-get install -y git
+    source ~/.bashrc
 fi
 
 echo "Configuring Git..."
@@ -70,6 +71,26 @@ then
     brew install ripgrep
 fi
 
+if ! hash bat 2> /dev/null
+then
+    echo "Installing bat..."
+    brew install bat
+    source ~/.bashrc
+fi
+
+if [ ! -f ~/.config/bat/themes/Catppuccin-mocha.tmTheme ];
+then
+    echo "Configuring bat..."
+    # TODO: Change this to curl or wget raw file download
+    git clone https://github.com/catppuccin/bat /tmp/catppuccin-bat
+
+    mkdir -p $batConfig ~/.config/bat/themes
+    cp /tmp/catppuccin-bat/*.tmTheme ~/.config/bat/themes
+
+    bat cache --build
+    rm -rf /tmp/catppuccin-bat
+fi
+
 if ! hash latexmk 2> /dev/null
 then
     echo "Installing latexmk and LaTeX packages..."
@@ -89,7 +110,7 @@ if ! hash nvm 2> /dev/null
 then
     echo "Installing NVM..."
     brew install nvm
-    source ~/.profile
+    source ~/.bashrc
 fi
 
 if ! hash node 2> /dev/null
@@ -113,7 +134,7 @@ then
     if ! hash gpg 2> /dev/null
     then
         sudo apt install -y gpg
-        source ~/.profile
+        source ~/.bashrc
     fi
 
     sudo mkdir -p /etc/apt/keyrings

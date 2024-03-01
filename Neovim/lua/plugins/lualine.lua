@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
-        local icons = require("config.theme").icons
+        local theme = require("config.theme")
 
         require("lualine").setup({
             options = {
@@ -17,13 +17,20 @@ return {
                     {
                         "diagnostics",
                         symbols = {
-                            error = icons.error .. ' ',
-                            warn = icons.warn .. ' ',
-                            info = icons.info .. ' ',
-                            hint = icons.hint .. ' '
+                            error = theme.icons.error .. ' ',
+                            warn = theme.icons.warn .. ' ',
+                            info = theme.icons.info .. ' ',
+                            hint = theme.icons.hint .. ' '
                         }
                     },
-                    "diff",
+                    {
+                        "diff",
+                        diff_color = {
+                            added = { fg = theme.colors.green },
+                            modified = { fg = theme.colors.peach },
+                            removed = { fg = theme.colors.red }
+                        }
+                    },
                     require("lualine_sections.spotify"),
                 },
                 lualine_c = {

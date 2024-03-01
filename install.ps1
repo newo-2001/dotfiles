@@ -3,6 +3,11 @@ $WSL_ENV = "USERPROFILE/up:LOCALAPPDATA/up"
 # Disable progress bars
 $ProgressPreference = "SilentlyContinue"
 
+function refresh-path {
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
+                [System.Environment]::GetEnvironmentVariable("Path", "User")
+}
+
 & {
     # Install PowerShell Profile
     Write-Output "Configuring Microsoft PowerShell profile..."
@@ -112,6 +117,29 @@ if (-Not (Get-Command "fzf" -ErrorAction SilentlyContinue))
     # Install fzf
     Write-Output "Installing fzf"
     winget install fzf
+}
+
+if (-Not (Get-Command "bat" -ErrorAction SilentlyContinue))
+{
+    # Install bat
+    Write-Output "Installing bat..."
+    winget install sharkdp.bat
+    refresh-path
+}
+
+& {
+    $batThemes = [IO.Path]::Combine($Env:APPDATA, "bat", "themes")
+    $batCatppuccin = Join-Path $batThemes "Catppuccin-mocha.tmTheme"
+    
+    # Check if catppuccin theme for bat is installed
+    if (-Not (Test-Path -PathType Leaf -Path $batCatppuccin))
+    {
+        # Configure catppuccin theme for bat
+        Write-Output "Configuring bat..."
+        $null = New-Item -ItemType Directory -Force -Path $batThemes
+        $null = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme" -OutFile $batCatppuccin
+        bat cache --build
+    }
 }
 
 # Check if PowerToys is not installed

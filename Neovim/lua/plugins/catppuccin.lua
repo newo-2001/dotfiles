@@ -17,6 +17,8 @@ return {
             }
         })
 
+        require("config.theme").setup()
+
         vim.cmd.colorscheme("catppuccin")
     end
 }

@@ -6,8 +6,13 @@ return {
             enabled = true,
             show_file_path = true,
             show_symbols = true,
+            icons = {
+                seperator = '>',
+                editor_state = '●'
+            },
             colors = {
-                path = colors.snowy
+                path = colors.blue,
+                file_name = colors.mauve
             },
             exclude_filetype = {
                 "help",
