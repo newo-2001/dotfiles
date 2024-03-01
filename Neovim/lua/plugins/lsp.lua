@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
     {
         "williamboman/mason.nvim",
@@ -54,7 +56,7 @@ return {
     {
         "lervag/vimtex",
         config = function()
-            if vim.fn.has("WSL") then
+            if utils.isWSL() then
                 vim.g.vimtex_view_general_viewer = vim.env.LOCALAPPDATA .. "/SumatraPDF/SumatraPDF.exe"
                 vim.g.vimtex_view_general_options = "-reuse-instance"
             end
