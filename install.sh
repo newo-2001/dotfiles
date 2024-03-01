@@ -98,6 +98,11 @@ then
     nvm install node
 fi
 
+if ! hash nvim 2> /dev/null
+then
+    brew install neovim
+fi
+
 echo "Configuring Neovim..."
 ln -sTf $(realpath "Neovim") ~/.config/nvim
 
