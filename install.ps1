@@ -23,8 +23,8 @@ if (-Not (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))
     winget install JanDeDobbeleer.OhMyPosh -s winget
 }
 
-# Install Oh-My-Posh Theme
 & {
+    # Install Oh-My-Posh Theme
     Write-Output "Configuring Oh-My-Posh theme..."
     $source = Join-Path "Oh-My-Posh" "custom.omp.json"
     $null = New-Item -Path $Env:POSH_THEMES_PATH -Name "custom.omp.json" -ItemType SymbolicLink -Value $source -Force
@@ -37,10 +37,10 @@ if (-Not (Get-Command "rg" -ErrorAction SilentlyContinue))
     winget install BurntSushi.ripgrep.MSVC
 }
 
-# Configure WSL
-Write-Output "Configuring WSL..."
-[Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
 & {
+    # Configure WSL
+    Write-Output "Configuring WSL..."
+    [Environment]::SetEnvironmentVariable("WSLENV", $WSL_ENV, [EnvironmentVariableTarget]::User)
     $source = Join-Path "WSL" ".wslconfig"
     $null = New-Item -Path $Env:USERPROFILE -Name ".wslconfig" -ItemType SymbolicLink -Value $source -Force
 }
@@ -119,6 +119,7 @@ if (-Not (Get-Command "fzf" -ErrorAction SilentlyContinue))
     winget install fzf
 }
 
+# Check if bat is not installed
 if (-Not (Get-Command "bat" -ErrorAction SilentlyContinue))
 {
     # Install bat
@@ -131,13 +132,13 @@ if (-Not (Get-Command "bat" -ErrorAction SilentlyContinue))
     $batThemes = [IO.Path]::Combine($Env:APPDATA, "bat", "themes")
     $batCatppuccin = Join-Path $batThemes "Catppuccin-mocha.tmTheme"
     
-    # Check if catppuccin theme for bat is installed
+    # Check if catppuccin theme for bat is not installed
     if (-Not (Test-Path -PathType Leaf -Path $batCatppuccin))
     {
         # Configure catppuccin theme for bat
         Write-Output "Configuring bat..."
         $null = New-Item -ItemType Directory -Force -Path $batThemes
-        $null = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme" -OutFile $batCatppuccin
+        $null = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme" -OutFile $batCatppuccin
         bat cache --build
     }
 }
@@ -147,12 +148,14 @@ if (-Not (Get-Command "bat" -ErrorAction SilentlyContinue))
 $process = Start-Process "winget" -ArgumentList "list --id Microsoft.PowerToys" -NoNewWindow -Wait -PassThru
 if ($process.ExitCode -ne 0)
 {
+    # Install PowerToys
     Write-Output "Installing Microsoft PowerToys..."
     winget install Microsoft.PowerToys
 }
 
 # Configure Windows Terminal
 & {
+    # Configure Windows Terminal
     Write-Output "Configuring Windows Terminal..."
     $source = Join-Path "WindowsTerminal" "terminal_wallpaper.jpg"
     $destination = Join-Path $Env:USERPROFILE ".config"
@@ -163,8 +166,8 @@ if ($process.ExitCode -ne 0)
     $null = New-Item -Path $destination -Name "settings.json" -ItemType SymbolicLink -Value $source -Force  
 }
 
-# Create symlinks for PowerToys
 & {
+    # Create symlinks for PowerToys
     Write-Output "Configuring Microsoft Powertoys..."
     $source = [IO.Path]::Combine("PowerToys", "KeyboardManager", "default.json")
     $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "PowerToys", "Keyboard Manager")
@@ -175,8 +178,8 @@ if ($process.ExitCode -ne 0)
     $null = New-Item -Path $destination -Name "custom-layouts.json" -ItemType SymbolicLink -Value $source -Force
 }
 
-# Create symlink for Neovim
 & {
+    # Create symlink for Neovim
     Write-Output "Configuring Neovim..."
     $null = New-Item -Path $Env:LOCALAPPDATA -Name "nvim" -ItemType SymbolicLink -Value "Neovim" -Force
 }

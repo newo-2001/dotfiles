@@ -78,17 +78,13 @@ then
     source ~/.bashrc
 fi
 
-if [ ! -f ~/.config/bat/themes/Catppuccin-mocha.tmTheme ];
+if [ ! -f "~/.config/bat/themes/Catppuccin-mocha.tmTheme" ];
 then
     echo "Configuring bat..."
-    # TODO: Change this to curl or wget raw file download
-    git clone https://github.com/catppuccin/bat /tmp/catppuccin-bat
-
     mkdir -p $batConfig ~/.config/bat/themes
-    cp /tmp/catppuccin-bat/*.tmTheme ~/.config/bat/themes
+    curl -sS "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme" -o ~/.config/bat/themes/Catppuccin-mocha.tmTheme
 
     bat cache --build
-    rm -rf /tmp/catppuccin-bat
 fi
 
 if ! hash latexmk 2> /dev/null
