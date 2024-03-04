@@ -4,7 +4,25 @@ vim.api.nvim_set_hl(0, "YukiLogo1", { fg = colors.neovim_blue })
 vim.api.nvim_set_hl(0, "YukiLogo2", { fg = colors.neovim_green, bg = colors.neovim_blue })
 vim.api.nvim_set_hl(0, "YukiLogo3", { fg = colors.neovim_green })
 vim.api.nvim_set_hl(0, "YukiSubtitle", { fg = colors.snowy })
-vim.api.nvim_set_hl(0, "YukiQuote", { fg = colors.snowy, italic = true})
+vim.api.nvim_set_hl(0, "YukiQuote", { fg = colors.snowy, italic = true })
+
+-- Redraw when clock changes
+local timer = nil
+vim.api.nvim_create_autocmd("User", { callback = function(args)
+    if args.match == "AlphaReady" then
+        -- Couldn't find a normal way to get the time (╥_╥)
+        local timeout = (60 - tonumber(vim.fn.strftime("%S"))) * 1000
+
+        timer = vim.loop.new_timer()
+        timer:start(timeout, 60 * 1000, vim.schedule_wrap(function()
+            require("alpha").redraw()
+        end))
+    elseif args.match == "AlphaClosed" and timer ~= nil then
+        timer:stop()
+        timer:close()
+        timer = nil
+    end
+end })
 
 local header = {
     type = "text",
@@ -87,9 +105,7 @@ return {
         { type = "padding", val = 3 },
         {
             type = "text",
-            val = {
-                vim.fn.strftime(" %Y-%m-%d   %H:%M") .. "   " .. plugin_count .. " plugins   " .. version
-            },
+            val = function() return vim.fn.strftime(" %Y-%m-%d   %H:%M") .. "   " .. plugin_count .. " plugins   " .. version end,
             opts = {
                 position = "center",
                 hl = "YukiSubtitle"
@@ -104,6 +120,5 @@ return {
                 hl = "YukiQuote"
             }
         }
-
     }
 }
