@@ -33,7 +33,8 @@ local excluded_file_types = {
     "",
     "help",
     "floaterm",
-    "neo-tree"
+    "neo-tree",
+    "qf"
 }
 
 local function should_show()
