@@ -1,5 +1,5 @@
 # tmux cheatsheet
-Leader is `<C-a>`.
+Leader is `<C-Space>`.
 Sessions and windows start counting from 1.
 
 ## General
@@ -30,4 +30,4 @@ Sessions and windows start counting from 1.
 | `<Leader> n` | **N**ext window |
 | `<Leader> p` | **P**revious window |
 | `<Leader> <0-9>` | Select window with give number |
-| `<Leader> <Space>` | Toggle last active window |
+| `<Leader> <C-Space>` | Toggle last active window |
