@@ -5,8 +5,9 @@ Leader is `\`.
 | Chord | Context | Action |
 | ----- | ----- | ----- |
 | `<Leader>ff` | Normal | **F**ind **f**ile |
+| `<Leader>fh` | Normal | **F**ind **h**idden file |
 | `<Leader>fr` | Normal | **F**ind **r**ecent file |
-| `<Leader>fg` | Normal | **F**ind **g**rep (find in files)|
+| `<Leader>fg` | Normal | **F**ind **g**rep (find in text)|
 | `<Leader>gd` | Normal | **G**o to symbol **d**efinition |
 | `<Leader>ca` | Normal | Open **c**ode **a**ctions menu |
 | `<Leader>dd` | Normal | **D**isplay **d**iagnostic |
@@ -23,7 +24,7 @@ Leader is `\`.
 | `<C-k>` | Normal | Show function signature |
 | `<C-w> v` | Normal | Create **v**ertical split |
 | `<C-w> s` | Normal | Create horizontal **s**plit |
-| `<C-w> <Arrow>` | Normal | Move active window along the selected axis |
+| `<C-w> <Arrow>` | Normal | Move active window along the selected axis (also works for `hjkl`) |
 | `<C-w> w` | Normal | Cycle through **w**indows |
 | `<C-w> x` | Normal | Rotate window locations |
 | `<C-Enter>` | Insert | Focus autocomplete menu |

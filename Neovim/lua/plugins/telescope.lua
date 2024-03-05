@@ -42,6 +42,7 @@ return {
             vim.keymap.set('n', "<Leader>ff", builtin.find_files, {})
             vim.keymap.set('n', "<Leader>fg", builtin.live_grep, {})
             vim.keymap.set('n', "<Leader>fr", builtin.oldfiles, {})
+            vim.keymap.set('n', "<Leader>fh", function() builtin.find_files({ no_ignore = true }) end, {})
             vim.keymap.set('n', "<Leader>cd", telescope.extensions.zoxide.list, {})
         end
     },
