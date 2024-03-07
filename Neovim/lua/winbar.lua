@@ -1,7 +1,8 @@
 local hl = {
     file_name = "WinBarFileName",
     file_path = "WinBarFilePath",
-    separator = "WinBarSeparator"
+    separator = "WinBarSeparator",
+    path_icon = "WinBarPathIcon"
 }
 
 local web_devicons = require("nvim-web-devicons")
@@ -21,7 +22,8 @@ local function get_title()
 
     local title_path = ""
     if file_path ~= '.' then
-        for dir in file_path:gmatch("[^/]+") do
+        title_path = "%#" .. hl.path_icon .. "#󰉋%* "
+        for dir in file_path:gmatch("[^/\\]+") do
             title_path = title_path .. "%#" .. hl.file_path .. '#' .. dir .. "%#" .. hl.separator .. "# > "
         end
     end
@@ -61,9 +63,10 @@ vim.api.nvim_create_autocmd(
     { callback = update_winbar }
 )
 
-vim.api.nvim_set_hl(0, hl.file_name, { fg = colors.mauve })
+vim.api.nvim_set_hl(0, hl.path_icon, { fg = colors.blue })
 vim.api.nvim_set_hl(0, hl.file_path, { fg = colors.blue })
 vim.api.nvim_set_hl(0, hl.separator, { fg = colors.text })
+vim.api.nvim_set_hl(0, hl.file_name, { fg = colors.mauve })
 
 return {
     hl = hl

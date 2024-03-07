@@ -46,6 +46,16 @@ return {
             vim.keymap.set('n', "<Leader>cd", telescope.extensions.zoxide.list, {})
         end
     },
+    {
+        "ziontee113/icon-picker.nvim",
+        config = function()
+            require("icon-picker").setup({
+                disable_legacy_commands = true
+            })
+
+            vim.keymap.set('n', "<Leader>fi", function() vim.cmd("IconPickerInsert") end, {})
+        end
+    },
     "nvim-telescope/telescope-ui-select.nvim",
     "jvgrootveld/telescope-zoxide"
 }
