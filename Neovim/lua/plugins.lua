@@ -12,5 +12,6 @@ return {
         "brenoprata10/nvim-highlight-colors",
         config = function() require("nvim-highlight-colors").setup() end
     },
+    "romainl/vim-cool",
     "romainl/vim-qf"
 }
