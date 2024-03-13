@@ -4,8 +4,8 @@
   "var": {
     "Spotify": {
       "RemixRegex": "(?i).* (?:[-–] (?:(.*) )?(?:remix)|[(（［[](?:([^)\\]）］]*) )?(?:remix)[)\\]）］]).*",
-      "ArtistRegex": "(?i) ?([([（［]cv[.:] ?.+[)\\]）］]|\b&.*)",
-      "SongRegex": " ?((\\[.*\\]|\\(.*\\)|（.*）|［.*］|-.+-|–.+–|~.+~|～.+～)| [-–~～:|] ).*"
+      "ArtistRegex": "(?i) ?([([（［]cv[.:] ?.+[)\\]）］]|\\b&.*)",
+      "SongRegex": " ?(\\[.*\\]|\\(.*\\)|（.*）|［.*］|\\B-.+-\\B|–.+–|~.+~|～.+～)| [-–~～:|] .*"
     }
   },
   "blocks": [
@@ -16,7 +16,7 @@
           "background_templates": [
             "{{ if contains .OS \"windows\" }}#9adcff{{ end }}",
             "{{ if contains .OS \"ubuntu\" }}#ff8457{{ end }}",
-	          "{{ if contains .OS \"debian\"}}#d70a53{{ end }}"
+	        "{{ if contains .OS \"debian\"}}#d70a53{{ end }}"
           ],
           "foreground_templates": [
             "{{ if contains .OS \"windows\" }}#193549{{ end }}",
