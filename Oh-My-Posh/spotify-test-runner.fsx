@@ -5,7 +5,7 @@ open FSharp.Data
 open System.Text.RegularExpressions
 
 let remixRegex = Regex(@".* (?:[-–] (?:(.*) )?(?:remix)|[(（［[](?:([^)\]）］]*) )?(?:remix)[)\]）］]).*", RegexOptions.IgnoreCase)
-let artistRegex = Regex(@" ?([([（［]cv[.:] ?.+[)\]）］]|&.*)", RegexOptions.IgnoreCase)
+let artistRegex = Regex(@" ?([([（［]cv[.:] ?.+[)\]）］]|\b&.*)", RegexOptions.IgnoreCase)
 let songRegex = Regex(@" ?((\[.*\]|\(.*\)|（.*）|［.*］|-.+-|–.+–|~.+~|～.+～)| [-–~～:|] ).*")
 
 type ParsedSong = {

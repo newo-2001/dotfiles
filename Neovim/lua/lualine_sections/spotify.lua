@@ -38,7 +38,7 @@ local function format_track(artist, track)
     -- Filter superfluous info from the artist
     artist = remove_patterns(artist, {
         " ?[%(%[（［][Cc][Vv][%.:].+[%)%]）］]",
-        "&.*"
+        "[^ ]&.*"
     })
 
     -- Filter superfluous info from the track
