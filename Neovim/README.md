@@ -8,6 +8,8 @@ Leader is `\`.
 | `<Leader>fh` | Normal | **F**ind **h**idden file |
 | `<Leader>fr` | Normal | **F**ind **r**ecent file |
 | `<Leader>fg` | Normal | **F**ind **g**rep (find in text)|
+| `<Leader>fi` | Normal | **F**ind (nerd font) **i**con|
+| `<Leader>cd` | Normal | Open **c**hange **d**irectory menu using zoxide |
 | `<Leader>gd` | Normal | **G**o to symbol **d**efinition |
 | `<Leader>ca` | Normal | Open **c**ode **a**ctions menu |
 | `<Leader>dd` | Normal | **D**isplay **d**iagnostic |
@@ -19,6 +21,7 @@ Leader is `\`.
 | `<Leader>tt` | Normal | **T**oggle **t**erminal |
 | `<Leader>ll` | Normal | **L**aTeX **L**ive preview |
 | `<Leader>li` | Normal | **L**aTeX debug **i**nfo |
+| `<Leader>lq` | Normal | **L**aTeX **l**og |
 | `<Leader>lc` | Normal | **L**aTeX **c**lean |
 | `<C-t>` | Normal | Toggle file **t**ree |
 | `<C-k>` | Normal | Show function signature |
