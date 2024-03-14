@@ -1,10 +1,9 @@
--- Enable 'hard' mode
+-- Enable 'hard' mode 
 local function noop() end
 vim.keymap.set('n', "<Up>", noop)
 vim.keymap.set('n', "<Down>", noop)
 vim.keymap.set('n', "<Left>", noop)
 vim.keymap.set('n', "<Right>", noop)
-
 
 vim.keymap.set({ 'n', 'v' }, "<Leader>ca", vim.lsp.buf.code_action) -- Code Action
 vim.keymap.set('n', "<C-K>", vim.lsp.buf.signature_help)
