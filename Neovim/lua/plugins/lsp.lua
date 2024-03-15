@@ -8,12 +8,13 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
-                    "omnisharp",
-                    "texlab",
-                    "tsserver",
-                    "jsonls",
-                    "yamlls"
+                    "lua_ls",       -- lua
+                    "omnisharp",    -- C#
+                    "texlab",       -- LaTeX
+                    "tsserver",     -- Typescript
+                    "jsonls",       -- Json
+                    "yamlls",       -- Yaml
+                    "hls"           -- Haskell
                 }
             })
         end,
@@ -27,7 +28,8 @@ return {
             local language_servers = {
                 "lua_ls",
                 "texlab",
-                "tsserver"
+                "tsserver",
+                "hls"
             }
 
             for _, language_server in pairs(language_servers) do

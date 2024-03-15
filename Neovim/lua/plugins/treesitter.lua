@@ -21,6 +21,7 @@ return {
                 "gitattributes",
                 "gitcommit",
                 "gitignore",
+                "haskell",
                 "html",
                 "ini",
                 "java",
