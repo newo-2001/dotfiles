@@ -89,7 +89,7 @@
           },
           "style": "powerline",
           "templates": [
-            " {{ .UpstreamIcon }}",
+            " {{ default \"\" .UpstreamIcon }} ",
             "({{ .HEAD }}{{ if .Working.Changed }}*{{ end }}) ",
             "{{ if .Ahead }}{{ .Ahead }} {{ end }}",
             "{{ if .Behind }}{{ .Behind }} {{ end }}",
