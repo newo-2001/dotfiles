@@ -23,7 +23,6 @@ vim.api.nvim_set_hl(0, "YukiLogo1", { fg = colors.neovim_blue })
 vim.api.nvim_set_hl(0, "YukiLogo2", { fg = colors.neovim_green, bg = colors.neovim_blue })
 vim.api.nvim_set_hl(0, "YukiLogo3", { fg = colors.neovim_green })
 vim.api.nvim_set_hl(0, "YukiSubtitle", { fg = colors.snowy })
-vim.api.nvim_set_hl(0, "YukiQuote", { fg = colors.snowy, italic = true })
 
 -- Redraw when clock changes
 vim.api.nvim_create_autocmd("User", { callback = function(args)
@@ -73,7 +72,8 @@ local quotes = {
     "Memento mori",
     "Did you mean: emacs",
     "Welcome home",
-    [["Software is like sex; it's better when it's free" — Linus Torvalds ]]
+    [["Software is like sex; it's better when it's free" — Linus Torvalds ]],
+    { " 【=◈︿◈= 】", italic = false }
 }
 
 local quote = nil
@@ -144,7 +144,12 @@ return {
         { type = "padding", val = 1 },
         {
             type = "text",
-            val = function() return quote end,
+            val = function()
+                local italic = type(quote) ~= "table" or quote.italic
+                vim.api.nvim_set_hl(0, "YukiQuote", { fg = colors.snowy, italic = italic })
+
+                return type(quote) == "table" and quote[1] or quote
+            end,
             opts = {
                 position = "center",
                 hl = "YukiQuote"
