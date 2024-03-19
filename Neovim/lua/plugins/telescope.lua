@@ -38,12 +38,6 @@ return {
 
             telescope.load_extension("ui-select")
             telescope.load_extension("zoxide")
-
-            vim.keymap.set('n', "<Leader>ff", builtin.find_files, {})
-            vim.keymap.set('n', "<Leader>fg", builtin.live_grep, {})
-            vim.keymap.set('n', "<Leader>fr", builtin.oldfiles, {})
-            vim.keymap.set('n', "<Leader>fh", function() builtin.find_files({ no_ignore = true }) end, {})
-            vim.keymap.set('n', "<Leader>cd", telescope.extensions.zoxide.list, {})
         end
     },
     {
@@ -52,8 +46,6 @@ return {
             require("icon-picker").setup({
                 disable_legacy_commands = true
             })
-
-            vim.keymap.set('n', "<Leader>fi", function() vim.cmd("IconPickerInsert") end, {})
         end
     },
     "nvim-telescope/telescope-ui-select.nvim",
