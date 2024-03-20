@@ -1,3 +1,5 @@
+local has_ghcup = vim.fn.executable("ghcup") ~= 0
+
 return {
     {
         "williamboman/mason.nvim",
@@ -6,16 +8,20 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
+            local language_servers = {
+                "lua_ls",       -- lua
+                "omnisharp",    -- C#
+                "texlab",       -- LaTeX
+                "tsserver",     -- Typescript
+                "jsonls",       -- Json
+                "yamlls",       -- Yaml
+            }
+            
+            -- Only install haskell ls if the compiler is also installed
+            if has_ghcup then table.insert(language_servers, "hls") end
+
             require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",       -- lua
-                    "omnisharp",    -- C#
-                    "texlab",       -- LaTeX
-                    "tsserver",     -- Typescript
-                    "jsonls",       -- Json
-                    "yamlls",       -- Yaml
-                    "hls"           -- Haskell
-                }
+                ensure_installed = language_servers
             })
         end,
         dependencies = { "williamboman/mason.nvim" }
@@ -28,9 +34,10 @@ return {
             local language_servers = {
                 "lua_ls",
                 "texlab",
-                "tsserver",
-                "hls"
+                "tsserver"
             }
+
+            if has_ghcup then table.insert(language_servers, "hls") end
 
             for _, language_server in pairs(language_servers) do
                 lspconfig[language_server].setup({ capabilities = capabilities })
