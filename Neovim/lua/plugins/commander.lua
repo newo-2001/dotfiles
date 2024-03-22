@@ -196,8 +196,13 @@ return {
                 desc = "Goto definition",
                 keys = { 'n', "<Leader>gd" },
                 cmd = vim.lsp.buf.definition,
-                cat = "Lsp",
-                set = false,
+                cat = "Lsp"
+            },
+            {
+                desc = "Goto declaration",
+                keys = { 'n', "<Leader>gD" },
+                cmd = vim.lsp.buf.declaration,
+                cat = "Lsp"
             },
             {
                 desc = "Move to relative window",
