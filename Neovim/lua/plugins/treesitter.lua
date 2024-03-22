@@ -3,7 +3,7 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             highlight = {
-                enabled = true
+                enable = true
             },
             ensure_installed = {
                 "arduino",
