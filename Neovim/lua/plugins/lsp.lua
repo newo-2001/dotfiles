@@ -15,7 +15,8 @@ return {
                 "tsserver",     -- Typescript
                 "jsonls",       -- Json
                 "yamlls",       -- Yaml
-                "terraformls",  -- Terraform
+                "terraformls",  -- Terraform,
+                "clangd",       -- C++
             }
             
             -- Only install haskell ls if the compiler is also installed
@@ -36,7 +37,8 @@ return {
                 "lua_ls",
                 "texlab",
                 "tsserver",
-                "terraformls"
+                "terraformls",
+                "clangd"
             }
 
             if has_ghcup then table.insert(language_servers, "hls") end
