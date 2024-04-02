@@ -32,7 +32,7 @@ $Env:EZA_COLORS = (Get-Content -Path $ezaColorsPath) -split "\r\n" -join ':'
 
 function lst
 {
-    eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type
+    eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type @args
 }
 
 Set-Alias vim nvim
