@@ -65,12 +65,22 @@ local function update()
             output = output .. line .. "\r\n"
         end,
         on_exit = function()
-            if output:find("^INFO") == nil then
+            if output:match("^INFO") == nil then
                 for row in output:gmatch("[^\r\n]+") do
-                    local track, artist = row:reverse():match('(.+) %- (.-)",', 2)
+                    row = row:reverse()
+                    local track, artist = row:match('(.+) %- (.-)",', 2)
                     if track ~= nil then
                         now_playing = "󰓇 " .. format_track(artist:reverse(), track:reverse())
                         return
+                    end
+
+                    local title = row:match('(.-)",', 2)
+                    if title ~= nil then
+                        title = title:reverse()
+                        if title:match("^Spotify") == nil and title:match("^N/A") == nil then
+                            now_playing = "󰓇 " .. title
+                            return
+                        end
                     end
                 end
             end
