@@ -24,8 +24,9 @@ return {
                 "tsserver",     -- Typescript
                 "jsonls",       -- Json
                 "yamlls",       -- Yaml
-                "terraformls",  -- Terraform,
-                "clangd"        -- C++
+                "terraformls",  -- Terraform
+                "clangd",       -- C++
+                "pyright"       -- Python
             }
 
             -- Only install haskell ls if the compiler is also installed
@@ -48,6 +49,7 @@ return {
                 "tsserver",
                 "terraformls",
                 "clangd",
+                "pyright",
                 {
                     "omnisharp",
                     opts = {
