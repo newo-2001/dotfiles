@@ -184,6 +184,12 @@ if ($process.ExitCode -ne 0)
     $null = New-Item -Path $Env:LOCALAPPDATA -Name "nvim" -ItemType SymbolicLink -Value "Neovim" -Force
 }
 
+& {
+    # Install global .editorconfig
+    Write-Output "Configuring global .editorconfig..."
+    $null = New-Item -Path $Env:USERPROFILE -Name ".editorconfig" -ItemType SymbolicLink -Value ".editorconfig" -Force
+}
+
 function Get-Fonts {
     [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
     (New-Object System.Drawing.Text.InstalledFontCollection).Families
