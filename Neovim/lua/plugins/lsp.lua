@@ -1,5 +1,13 @@
 local has_ghcup = vim.fn.executable("ghcup") ~= 0
 
+local function on_attach(client)
+    if client.server_capabilities.signatureHelpProvider then
+        require("lsp-overloads").setup(client, {})
+        vim.cmd("nnoremap <silent> <buffer> <Leader>ss :LspOverloadsSignature<CR>")
+        vim.cmd("inoremap <silent> <buffer> <Leader>ss :LspOverloadsSignature<CR>")
+    end
+end
+
 return {
     {
         "williamboman/mason.nvim",
@@ -18,7 +26,7 @@ return {
                 "terraformls",  -- Terraform,
                 "clangd",       -- C++
             }
-            
+
             -- Only install haskell ls if the compiler is also installed
             if has_ghcup then table.insert(language_servers, "hls") end
 
@@ -44,11 +52,15 @@ return {
             if has_ghcup then table.insert(language_servers, "hls") end
 
             for _, language_server in pairs(language_servers) do
-                lspconfig[language_server].setup({ capabilities = capabilities })
+                lspconfig[language_server].setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach
+                })
             end
 
             lspconfig.omnisharp.setup({
                 capabilities = capabilities,
+                on_attach = on_attach,
                 enable_import_completion = true,
                 enable_roslyn_analyzers = true,
                 analyze_open_document_only = false,
@@ -58,6 +70,7 @@ return {
             local schemastore = require("schemastore")
             lspconfig.jsonls.setup({
                 capabilities = capabilities,
+                on_attach = on_attach,
                 settings = {
                     json = {
                         validate = { enable = true },
@@ -70,6 +83,7 @@ return {
 
             lspconfig.yamlls.setup({
                 capabilities = capabilities,
+                on_attach = on_attach,
                 settings = {
                     yaml = {
                         schemaStore = {
@@ -86,12 +100,7 @@ return {
             "hrsh7th/cmp-nvim-lsp"
         }
     },
-    {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-            require("lsp_signature").setup()
-        end
-    },
+    "Issafalcon/lsp-overloads.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "ionide/Ionide-vim",
     "b0o/SchemaStore.nvim"
