@@ -3,6 +3,9 @@
 
 . ~/.profile
 
+# Load OS name and version into environment
+. /etc/os-release
+
 echo "Configuring Bash..."
 ln -sf $(realpath "Bash/.bashrc") ~/.bashrc
 ln -sf $(realpath "Bash/.profile") ~/.profile 
@@ -140,5 +143,21 @@ then
     sudo apt update
     sudo apt install -y eza
 fi
+
+if [ "$NAME" = "Ubuntu" ];
+then
+    # Install Microsoft apt package repository
+    if [ ! -f /etc/apt/sources.list.d/microsoft-prod.list ]
+    then
+        echo "Installing Microsoft apt package repository..."
+        wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
+        sudo dpkg -i packages-microsoft-prod.deb
+        rm packages-microsoft-prod.deb
+        sudo apt-get update
+    fi
+fi
+
+echo "Configuring global .editorconfig..."
+ln -sf $(realpath ".editorconfig") ~/.editorconfig
 
 echo "Done."
