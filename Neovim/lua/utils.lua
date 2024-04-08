@@ -5,7 +5,7 @@ utils.isWSL = function()
 end
 
 utils.isWindows = function()
-    return vim.fn.has("win64") or vim.fn.has("win32") or vim.fn.has("win16")
+    return (vim.fn.has("win64") or vim.fn.has("win32") or vim.fn.has("win16")) ~= 0
 end
 
 utils.deep_copy = function(obj)
