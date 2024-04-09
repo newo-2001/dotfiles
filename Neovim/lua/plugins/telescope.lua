@@ -5,7 +5,6 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             local telescope = require("telescope")
-            local builtin = require("telescope.builtin")
             telescope.setup({
                 extensions = {
                     ["ui-select"] = {
@@ -32,6 +31,14 @@ return {
                     file_ignore_patterns = {
                         "%.jpe?g$",
                         "%.png$"
+                    },
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = "move_selection_next",
+                            ["<Tab>"] = "move_selection_next",
+                            ["<C-k>"] = "move_selection_previous",
+                            ["<S-Tab>"] = "move_selection_previous"
+                        }
                     }
                 }
             })
