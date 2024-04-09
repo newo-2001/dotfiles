@@ -42,6 +42,7 @@
     forth = ls ^origin/HEAD HEAD
     staged = diff --staged
     unstage = restore --staged
+    begone = checkout HEAD
 
 [delta]
     navigate = true    # use n and N to move between diff sections
