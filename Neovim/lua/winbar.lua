@@ -22,7 +22,7 @@ local function get_title()
 
     local title_path = " "
     if file_path ~= '.' then
-        title_path = "%#" .. hl.path_icon .. "#󰉋%* "
+        title_path = " %#" .. hl.path_icon .. "#󰉋%* "
         for dir in file_path:gmatch("[^/\\]+") do
             title_path = title_path .. "%#" .. hl.file_path .. '#' .. dir .. "%#" .. hl.separator .. "# > "
         end
