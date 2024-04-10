@@ -74,8 +74,8 @@ return {
             },
             {
                 desc = "Open code actions menu",
-                keys = { 'n', "<Leader>ca" },
-                cmd = vim.lsp.buf.code_action,
+                keys = {{ 'v', 'n' }, "<Leader>ca" },
+                cmd = require("actions-preview").code_actions,
                 cat = "Lsp"
             },
             {
