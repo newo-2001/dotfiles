@@ -42,6 +42,7 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local schemastore = require("schemastore")
+            local omnisharp_extended = require("omnisharp_extended")
 
             local language_servers = {
                 "lua_ls",
@@ -57,7 +58,13 @@ return {
                         enable_roslyn_analyzers = true,
                         enable_editor_config_support = true,
                         analyze_open_document_only = false,
-                        cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" }
+                        cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+                        handlers = {
+                            ["textDocument/definition"] = omnisharp_extended.definition_handler,
+                            ["textDocument/typeDefinition"] = omnisharp_extended.type_definition_handler,
+                            ["textDocument/references"] = omnisharp_extended.references_handler,
+                            ["textDocument/implementation"] = omnisharp_extended.implementation_handler
+                        }
                     }
                 },
                 {
@@ -113,5 +120,6 @@ return {
     "Issafalcon/lsp-overloads.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "ionide/Ionide-vim",
-    "b0o/SchemaStore.nvim"
+    "b0o/SchemaStore.nvim",
+    "Hoffs/omnisharp-extended-lsp.nvim"
 }
