@@ -32,18 +32,18 @@ local function get_title()
 end
 
 local excluded_file_types = {
-    "",
-    "help",
-    "floaterm",
-    "neo-tree",
-    "qf"
+    "^$",
+    "^help$",
+    "^floaterm$",
+    "^neo%-tree",
+    "^qf$"
 }
 
 local function should_show()
     if vim.bo.filetype == nil then return false end
 
     for _, file_type in pairs(excluded_file_types) do
-        if vim.bo.filetype == file_type then return false end
+        if string.match(vim.bo.filetype, file_type) ~= nil then return false end
     end
 
     return true
