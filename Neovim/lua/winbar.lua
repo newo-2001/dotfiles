@@ -36,7 +36,8 @@ local excluded_file_types = {
     "^help$",
     "^floaterm$",
     "^neo%-tree",
-    "^qf$"
+    "^qf$",
+    "^alpha$"
 }
 
 local function should_show()
