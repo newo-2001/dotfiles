@@ -43,6 +43,7 @@
     staged = diff --staged
     unstage = restore --staged
     begone = checkout HEAD
+    update-submodules = submodule update --recursive --remote
 
 [delta]
     navigate = true    # use n and N to move between diff sections
