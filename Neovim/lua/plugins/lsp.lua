@@ -26,7 +26,8 @@ return {
                 "yamlls",       -- Yaml
                 "terraformls",  -- Terraform
                 "clangd",       -- C++
-                "pyright"       -- Python
+                "pyright",      -- Python
+                "rust_analyzer" -- Rust
             }
 
             -- Only install haskell ls if the compiler is also installed
@@ -51,6 +52,19 @@ return {
                 "terraformls",
                 "clangd",
                 "pyright",
+                {
+                    "rust_analyzer",
+                    opts = {
+                        checkOnSave = {
+                            command = "clippy",
+                            extraArgs = {
+                                "--",
+                                "--no-deps",
+                                "-Wclippy::pedantic"
+                            }
+                        }
+                    }
+                },
                 {
                     "omnisharp",
                     opts = {
