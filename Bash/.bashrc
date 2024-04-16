@@ -67,3 +67,4 @@ fi
 
 DOTFILES="$(dirname $(dirname $(readlink $HOME/.bashrc)))"
 export DOTFILES
+. "$HOME/.cargo/env"

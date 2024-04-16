@@ -32,3 +32,5 @@ The `install.ps1` script is used to configure a Windows system whereas the `inst
 | [latexmk](https://mg.readthedocs.io/latexmk.html) | ❌ | ✔️ |
 | [NVM](https://github.com/nvm-sh/nvm) | ❌ | ✔️ |
 | [Node.js](https://nodejs.org/en) | ❌ | ✔️ |
+| [Rustup](https://rustup.rs/) | ❌ | ✔️ |
+

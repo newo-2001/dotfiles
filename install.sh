@@ -157,6 +157,11 @@ then
     fi
 fi
 
+if ! hash cargo 2> /dev/null
+then
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+fi
+
 echo "Configuring global .editorconfig..."
 ln -sf $(realpath ".editorconfig") ~/.editorconfig
 
