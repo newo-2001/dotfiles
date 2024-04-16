@@ -179,6 +179,19 @@ return {
                 set = false
             },
             {
+                desc = "Suggest spelling correction",
+                keys = { 'n', "<Leader>z=" },
+                cmd = telescope.spell_suggest,
+                cat = "Spell"
+            },
+            {
+                desc = "Add word to spelling dictionary",
+                keys = { 'n', "<Leader>zg" },
+                cat = "Spell",
+                cmd = "<CMD>spellgood<CR>",
+                set = false
+            },
+            {
                 desc = "Create vertical split",
                 keys = { 'n', "<C-w>v" },
                 cmd = "<CMD>vsplit<CR>",
