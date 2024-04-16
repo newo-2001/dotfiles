@@ -125,6 +125,10 @@ fi
 
 echo "Configuring Neovim..."
 ln -sTf $(realpath "Neovim") ~/.config/nvim
+if [ ! -d ~/.local/share/nvim/spell ]
+then
+    mkdir ~/.local/share/nvim/spell
+fi
 
 if ! hash eza 2> /dev/null
 then

@@ -20,6 +20,7 @@ vim.opt.signcolumn = "yes:2" -- Always show sign column for consistent width
 vim.opt.showtabline = 0 -- Disable tabline
 vim.opt.fileformat = "unix"
 vim.opt.linebreak = true -- Break lines on whole words
+vim.opt.spellfile = vim.fn.stdpath("data") .. "/spell/en.utf-8.add" -- Add local spellchecking file
 
 vim.diagnostic.config({
     update_in_insert = true -- Update LSP on diagnostic for every keystroke
