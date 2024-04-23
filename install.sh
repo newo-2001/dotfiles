@@ -166,6 +166,11 @@ then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 fi
 
+if ! hash neofetch 2> /dev/null
+then
+    sudo apt install -y neofetch
+fi
+
 echo "Configuring global .editorconfig..."
 ln -sf $(realpath ".editorconfig") ~/.editorconfig
 
