@@ -218,6 +218,12 @@ return {
                 cat = "Lsp"
             },
             {
+                desc = "Find usages",
+                keys = { 'n', "<Leader>fu" },
+                cmd = telescope.lsp_references,
+                cat = "Lsp"
+            },
+            {
                 desc = "Move to relative window",
                 keys = { 'n', "<C-w>[hjkl<Arrow>]" },
                 cmd = noop,
