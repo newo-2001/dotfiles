@@ -179,4 +179,6 @@ ln -sf $(realpath "neofetch/config.conf") ~/.config/neofetch/config.conf
 echo "Configuring global .editorconfig..."
 ln -sf $(realpath ".editorconfig") ~/.editorconfig
 
+touch ~/.hushlogin
+
 echo "Done."
