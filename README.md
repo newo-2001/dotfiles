@@ -33,4 +33,5 @@ The `install.ps1` script is used to configure a Windows system whereas the `inst
 | [NVM](https://github.com/nvm-sh/nvm) | ❌ | ✔️ |
 | [Node.js](https://nodejs.org/en) | ❌ | ✔️ |
 | [Rustup](https://rustup.rs/) | ❌ | ✔️ |
+| [neofetch](https://github.com/dylanaraps/neofetch) | ❌ | ✔️ |
 
