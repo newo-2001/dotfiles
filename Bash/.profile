@@ -35,7 +35,7 @@ colorsFile="$DOTFILES/Eza/colors.txt"
 EZA_COLORS="$(echo -n "$(<$colorsFile)" | sed -E '$!s/\r?$/:/' | tr -d \\r\\n)"
 export EZA_COLORS
 
-alias ls="eza -lh --git --icons --no-permissions --no-user --no-time --color-scale --sort type"
+alias ls="eza -h --icons --sort type"
 alias vim="nvim"
 
 alias cat="bat"
