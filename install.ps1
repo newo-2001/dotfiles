@@ -8,12 +8,21 @@ function refresh-path {
                 [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
+if (-Not (Get-Command "pwsh" -ErrorAction SilentlyContinue))
+{
+    Write-Output "Installing PowerShell..."
+    winget install --id Microsoft.Powershell --source winget
+}
+
 & {
     # Install PowerShell Profile
     Write-Output "Configuring Microsoft PowerShell profile..."
     $source = Join-Path "PowerShell" "Microsoft.PowerShell_profile.ps1"
-    $mirror = [IO.Path]::Combine($HOME, "Documents", "WindowsPowerShell")
-    $null = New-Item -Path $mirror -Name "Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value $source -Force
+    $documents = Join-Path $Env:USERPROFILE "Documents"
+    $dest = Join-Path $documents "WindowsPowerShell"
+    $null = New-Item -Path $dest -Name "Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value $source -Force
+    $dest = Join-Path $documents "PowerShell"
+    $null = New-Item -Path $dest -Name "Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value $source -Force
 }
 
 if (-Not (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue))

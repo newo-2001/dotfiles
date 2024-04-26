@@ -3,16 +3,16 @@ These are my dotfiles. Used to configure my system with a single command.
 The `install.ps1` script is used to configure a Windows system whereas the `install.sh` script is used to configure a Linux system (can be WSL).
 
 ## Components
-✔️  --- Installed and configured
+✔️  - Installed and configured
 
-⚙️  --- Only configured
+⚙️  - Only configured
 
-❌ --- Not installed nor configured
+❌ - Not installed nor configured
 
 | Component | Windows | Linux |
 | ----- | :---: | :---: |
 | [Neovim](https://github.com/neovim/neovim) | ⚙️ | ✔️ |
-| [PowerShell](https://github.com/PowerShell/PowerShell) | ⚙️ | ❌ |
+| [PowerShell](https://github.com/PowerShell/PowerShell) | ✔️ | ❌ |
 | [bash](https://www.gnu.org/software/bash/) | ❌ | ⚙️ |
 | [PowerToys](https://github.com/microsoft/PowerToys) | ✔️ | ❌ |
 | [tmux](https://github.com/tmux/tmux) | ❌ | ✔️ |

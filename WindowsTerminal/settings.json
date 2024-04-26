@@ -31,7 +31,7 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "newTabMenu": 
     [
         {
@@ -73,6 +73,21 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
+                "hidden": false,
+                "name": "NixOS",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "backgroundImage": "%USERPROFILE%\\.config\\terminal_wallpaper.jpg",
+                "backgroundImageOpacity": 0.1,
+                "backgroundImageStretchMode": "uniformToFill",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
