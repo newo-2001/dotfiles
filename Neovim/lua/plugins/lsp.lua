@@ -1,11 +1,15 @@
 local utils = require("utils")
 local has_ghcup = vim.fn.executable("ghcup") ~= 0
 
-local function on_attach(client)
+local function on_attach(client, buff_nr)
     if client.server_capabilities.signatureHelpProvider then
         require("lsp-overloads").setup(client, {})
         vim.cmd("nnoremap <silent> <buffer> <Leader>ss :LspOverloadsSignature<CR>")
         vim.cmd("inoremap <silent> <buffer> <Leader>ss :LspOverloadsSignature<CR>")
+    end
+
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(buff_nr, true)
     end
 end
 
