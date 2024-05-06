@@ -32,7 +32,8 @@ return {
                 "clangd",        -- C++
                 "pyright",       -- Python
                 "rust_analyzer", -- Rust
-                "html"           -- HTML
+                "html",          -- HTML
+                "powershell_es"  -- PowerShell
             }
 
             -- Only install haskell ls if the compiler is also installed
@@ -58,6 +59,22 @@ return {
                 "clangd",
                 "pyright",
                 "html",
+                {
+                    "powershell_es",
+                    opts = function()
+                        if utils.is_wsl() then
+                            -- If we are under wsl we have to start PowerShell on the windows host
+                            -- Additionally we need to point the bundle to the one downloaded by mason under WSL
+                            return {
+                                shell = "powershell.exe",
+                                bundle_path = [[\\wsl$\]] .. utils.linux_distro() .. vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services"
+                            }
+                        end
+
+                        -- We disable PowerShell on windows for now, until I can test this on a Windows host
+                        return nil
+                    end
+                },
                 {
                     "rust_analyzer",
                     opts = {
@@ -125,11 +142,26 @@ return {
                 }
 
                 if type(language_server) == "table" then
+                    -- Resolve lazy option
+                    if type(language_server.opts) == "function" then
+                        language_server.opts = language_server.opts()
+                    end
+
+                    if type(language_server.opts) ~= "table" then
+                        error("Language server options has to be table or a function that returns a table")
+                    end
+
                     options = utils.merge_tables(language_server.opts, options)
+
+                    -- In case of the opts being a table the first entry is the name of language server
                     language_server = language_server[1]
                 end
 
-                lspconfig[language_server].setup(options)
+                if type(language_server) == "string" then
+                    lspconfig[language_server].setup(options or {})
+                else
+                    error("Language server has to resolve to a string value")
+                end
             end
         end,
         dependencies = {
