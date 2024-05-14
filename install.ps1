@@ -1,3 +1,10 @@
+# This script only works properly in Windows PowerShell (5.1)
+if ($PSVersionTable.PSVersion.Major -ne 5)
+{
+    PowerShell.exe -NoProfile -NoLogo -File ./install.ps1
+    exit
+}
+
 $WSL_ENV = "USERPROFILE/up:LOCALAPPDATA/up"
 
 # Disable progress bars
@@ -171,8 +178,13 @@ if ($process.ExitCode -ne 0)
 
     $null = New-Item -Path $destination -Name "terminal_wallpaper.jpg" -ItemType SymbolicLink -Value $source -Force
     $source = Join-Path "WindowsTerminal" "settings.json"
-    $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Packages", "Microsoft.WindowsTerminal_8wekyb3d8bbwe", "LocalState")
-    $null = New-Item -Path $destination -Name "settings.json" -ItemType SymbolicLink -Value $source -Force  
+    $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "Windows Terminal", "Fragments", "dotfiles")
+    $null = New-Item -Path $destination -Name "settings.json" -ItemType SymbolicLink -Value $source -Force
+
+    # Patch the root config
+    $target = [IO.Path]::Combine($Env:LOCALAPPDATA, "Packages", "Microsoft.WindowsTerminal_8wekyb3d8bbwe", "LocalState", "settings.json")
+    $patch = Join-Path "WindowsTerminal" "settings.patch.json"
+    pwsh.exe -NoProfile -NoLogo -Command "./scripts/patch-json.ps1 -Patch $patch -Target $target"
 }
 
 & {

@@ -1,0 +1,14 @@
+{
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "profiles": {
+        "defaults": {
+            "bellStyle": "none",
+            "colorScheme": "One Half Dark",
+            "font": {
+                "face": "JetBrainsMonoNL Nerd Font Mono",
+                "size": 11.0
+            },
+            "useAtlasEngine": true
+        }
+    }
+}
