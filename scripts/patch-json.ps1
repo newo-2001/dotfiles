@@ -45,4 +45,4 @@ $targetContent = Get-Content -Raw -Path $Target | ConvertFrom-Json -AsHashTable
 
 Patch-Object -Target $targetContent -Patch $patchContent
 
-($targetContent | ConvertTo-Json -Depth 10) -replace "`r", " " | Out-File -NoNewLine -FilePath $Target
+($targetContent | ConvertTo-Json -Depth 10) -replace "`r", "" | Out-File -NoNewLine -FilePath $Target
