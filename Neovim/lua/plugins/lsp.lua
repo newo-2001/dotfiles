@@ -69,10 +69,12 @@ return {
                                 shell = "powershell.exe",
                                 bundle_path = [[\\wsl$\]] .. utils.linux_distro() .. vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services"
                             }
+                        else
+                            return {
+                                shell = "pwsh",
+                                bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services"
+                            }
                         end
-
-                        -- We disable PowerShell on windows for now, until I can test this on a Windows host
-                        return nil
                     end
                 },
                 {
