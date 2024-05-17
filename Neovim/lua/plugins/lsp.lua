@@ -22,18 +22,20 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local language_servers = {
-                "lua_ls",        -- lua
-                "omnisharp",     -- C#
-                "texlab",        -- LaTeX
-                "tsserver",      -- Typescript
-                "jsonls",        -- Json
-                "yamlls",        -- Yaml
-                "terraformls",   -- Terraform
-                "clangd",        -- C++
-                "pyright",       -- Python
-                "rust_analyzer", -- Rust
-                "html",          -- HTML
-                "powershell_es"  -- PowerShell
+                "lua_ls",                         -- lua
+                "omnisharp",                      -- C#
+                "texlab",                         -- LaTeX
+                "tsserver",                       -- Typescript
+                "jsonls",                         -- Json
+                "yamlls",                         -- Yaml
+                "terraformls",                    -- Terraform
+                "clangd",                         -- C++
+                "pyright",                        -- Python
+                "rust_analyzer",                  -- Rust
+                "html",                           -- HTML
+                "powershell_es",                  -- PowerShell
+                "dockerls",                       -- Dockerfile
+                "docker_compose_language_service" -- Docker compose
             }
 
             -- Only install haskell ls if the compiler is also installed
