@@ -14,5 +14,6 @@ return {
     },
     "aznhe21/actions-preview.nvim",
     "romainl/vim-cool",
-    "romainl/vim-qf"
+    "romainl/vim-qf",
+    "github/copilot.vim"
 }
