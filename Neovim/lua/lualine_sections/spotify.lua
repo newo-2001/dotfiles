@@ -33,7 +33,7 @@ end
 local function format_track(artist, track)
     -- Replace artist with the remixer if this is a remix
     local remixed, remix_artist = is_remix(track)
-    if remix_artist ~= nil then artist = remix_artist end
+    if remix_artist ~= nil and remix_artist ~= "" then artist = remix_artist end
 
     -- Filter superfluous info from the artist
     artist = remove_patterns(artist, {
