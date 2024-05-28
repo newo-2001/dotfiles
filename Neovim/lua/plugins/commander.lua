@@ -218,6 +218,12 @@ return {
                 cat = "Lsp"
             },
             {
+                desc = "Goto implementation",
+                keys = { 'n', "<Leader>gi" },
+                cmd = vim.lsp.buf.implementation,
+                cat = "Lsp"
+            },
+            {
                 desc = "Find usages",
                 keys = { 'n', "<Leader>fu" },
                 cmd = telescope.lsp_references,
