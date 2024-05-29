@@ -22,20 +22,20 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local language_servers = {
-                "lua_ls",                         -- lua
-                "omnisharp",                      -- C#
-                "texlab",                         -- LaTeX
-                "tsserver",                       -- Typescript
-                "jsonls",                         -- Json
-                "yamlls",                         -- Yaml
-                "terraformls",                    -- Terraform
-                "clangd",                         -- C++
-                "pyright",                        -- Python
-                "rust_analyzer",                  -- Rust
-                "html",                           -- HTML
-                "powershell_es",                  -- PowerShell
-                "dockerls",                       -- Dockerfile
-                "docker_compose_language_service" -- Docker compose
+                "lua_ls",                          -- lua
+                "omnisharp",                       -- C#
+                "texlab",                          -- LaTeX
+                "tsserver",                        -- Typescript
+                "jsonls",                          -- Json
+                "yamlls",                          -- Yaml
+                "terraformls",                     -- Terraform
+                "clangd",                          -- C++
+                "pyright",                         -- Python
+                "rust_analyzer",                   -- Rust
+                "html",                            -- HTML
+                "powershell_es",                   -- PowerShell
+                "dockerls",                        -- Dockerfile
+                "docker_compose_language_service"  -- Docker compose
             }
 
             -- Only install haskell ls if the compiler is also installed
@@ -130,7 +130,16 @@ return {
                                     enable = false,
                                     url = "",
                                 },
-                                schemas = schemastore.yaml.schemas()
+                                schemas = schemastore.yaml.schemas({
+                                    replace = {
+                                        ["Azure Pipelines"] = {
+                                            description = "Azure Pipelines YAML pipelines definition",
+                                            fileMatch = { "azure-pipelines*.y*l"},
+                                            name = "Azure Pipelines",
+                                            url = "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"
+                                        }
+                                    }
+                                })
                             }
                         }
                     }
