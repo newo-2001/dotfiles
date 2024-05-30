@@ -9,7 +9,7 @@ local function on_attach(client, buff_nr)
     end
 
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(buff_nr, true)
+        vim.lsp.inlay_hint.enable(true, { buff_nr })
     end
 end
 
@@ -54,13 +54,22 @@ return {
             local omnisharp_extended = require("omnisharp_extended")
 
             local language_servers = {
-                "lua_ls",
                 "texlab",
                 "tsserver",
                 "terraformls",
                 "clangd",
                 "pyright",
                 "html",
+                {
+                    "lua_ls",
+                    opts = {
+                        settings = {
+                            Lua = {
+                                hint = { enable = true }
+                            }
+                        }
+                    }
+                },
                 {
                     "powershell_es",
                     opts = function()
@@ -88,6 +97,21 @@ return {
                                 "--",
                                 "--no-deps",
                                 "-Wclippy::pedantic"
+                            }
+                        },
+                        settings = {
+                            ["rust-analyzer"] = {
+                                inlayHints = {
+                                    chainingHints = { enable = true },
+                                    parameterHints = { enable = true },
+                                    maxLength = 25,
+                                    renderColons = true,
+                                    typeHints = {
+                                        enable = true,
+                                        hideClosureInitialization = false,
+                                        hideNamedConstructor = false
+                                    }
+                                }
                             }
                         }
                     }
