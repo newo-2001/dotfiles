@@ -42,11 +42,11 @@ local header = {
     opts = {
         position = "center",
         hl = {
-            { { "YukiLogo1", 6, 8  }, { "YukiLogo3", 9,  22 } },
-            { { "YukiLogo1", 6, 8  }, { "YukiLogo2", 9,  11 }, { "YukiLogo3", 12, 24 } },
-            { { "YukiLogo1", 6, 11 }, { "YukiLogo3", 12, 26 } },
-            { { "YukiLogo1", 6, 11 }, { "YukiLogo3", 12, 24 } },
-            { { "YukiLogo1", 6, 11 }, { "YukiLogo3", 12, 22 } },
+            { { "YukiLogo1", 5, 7  }, { "YukiLogo3", 8,  21 } },
+            { { "YukiLogo1", 5, 7  }, { "YukiLogo2", 8,  10 }, { "YukiLogo3", 11, 23 } },
+            { { "YukiLogo1", 5, 10 }, { "YukiLogo3", 11, 25 } },
+            { { "YukiLogo1", 5, 10 }, { "YukiLogo3", 11, 23 } },
+            { { "YukiLogo1", 5, 10 }, { "YukiLogo3", 11, 21 } },
         }
     }
 }
