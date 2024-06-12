@@ -8,6 +8,11 @@
       "SongRegex": " ?(\\[.*\\]|\\(.*\\)|（.*）|［.*］|\\B-.+-\\B|–.+–|~.+~|～.+～)| [-–~～:|] .*"
     }
   },
+  "transient_prompt": {
+    "foreground": "#ffffff",
+    "background": "transparent",
+    "template": "> "
+  },
   "blocks": [
     {
       "alignment": "left",
