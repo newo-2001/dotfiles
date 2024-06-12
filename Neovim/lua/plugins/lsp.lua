@@ -206,9 +206,39 @@ return {
             "hrsh7th/cmp-nvim-lsp"
         }
     },
+    {
+        "cameron-wags/rainbow_csv.nvim",
+        config = function()
+            require("rainbow_csv").setup()
+
+            local colors = require("../config/theme").colors
+
+            -- Numbers because terminal colors do not accept hex values
+            vim.g.rcsv_colorpairs = {
+                { 1, colors.blue },
+                { 2, colors.peach },
+                { 3, colors.red },
+                { 4, colors.green },
+                { 5, colors.mauve },
+                { 6, colors.yellow },
+                { 7, colors.text }
+            }
+        end,
+        ft = {
+            "csv",
+            "tsv",
+            "csv_semicolon"
+        },
+        cmd = {
+            "RainbowDelim",
+            "RainbowDelimSimple",
+            "RainbowDelimQuoted",
+            "RainbowMultiDelim"
+        }
+    },
     "Issafalcon/lsp-overloads.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "ionide/Ionide-vim",
     "b0o/SchemaStore.nvim",
-    "Hoffs/omnisharp-extended-lsp.nvim"
+    "Hoffs/omnisharp-extended-lsp.nvim",
 }

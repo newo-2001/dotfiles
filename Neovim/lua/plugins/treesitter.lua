@@ -4,7 +4,12 @@ return {
         config = function()
             require("nvim-treesitter.configs").setup({
                 autotag = { enable = true },
-                highlight = { enable = true },
+                highlight = {
+                    enable = true,
+                    disable = {
+                        "csv" -- Prefer rainbow_csv highlighting
+                    }
+                },
                 ensure_installed = {
                     "arduino",
                     "bash",
@@ -14,7 +19,6 @@ return {
                     "c_sharp",
                     "cpp",
                     "css",
-                    "csv",
                     "dockerfile",
                     "git_config",
                     "git_rebase",
