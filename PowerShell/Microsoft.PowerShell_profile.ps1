@@ -15,6 +15,15 @@ function Get-RealScriptPath()
     return Resolve-Path -Path (Join-Path $PSScriptRoot $link_target)
 }
 
+& {
+    # Fix broken user path
+    $path = [Environment]::GetEnvironmentVariables("User").Path
+    if (-not $Env:PATH.Contains($path))
+    {
+        $Env:PATH += ";$path"
+    }
+}
+
 if (Get-Command "oh-my-posh" -ErrorAction SilentlyContinue)
 {
     $theme = Join-Path $env:POSH_THEMES_PATH "custom.omp.json"
