@@ -7,7 +7,7 @@
     longpaths = true
     autocrlf = false
     eol = lf
-    editor = nvim
+	editor = \"C:\\Users\\Owen\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
 
 [gpg]
     format = ssh

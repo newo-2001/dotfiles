@@ -161,21 +161,6 @@ then
     fi
 fi
 
-if ! hash cargo 2> /dev/null
-then
-    echo "Installing rustup..."
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
-fi
-
-if ! hash neofetch 2> /dev/null
-then
-    echo "Installing neofetch..."
-    sudo apt install -y neofetch
-fi
-
-echo "Configuring neofetch..."
-ln -sf $(realpath "neofetch/config.conf") ~/.config/neofetch/config.conf
-
 echo "Configuring global .editorconfig..."
 ln -sf $(realpath ".editorconfig") ~/.editorconfig
 

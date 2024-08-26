@@ -171,16 +171,6 @@ if ($process.ExitCode -ne 0)
 
 # Configure Windows Terminal
 & {
-    # Configure Windows Terminal
-    Write-Output "Configuring Windows Terminal..."
-    $source = Join-Path "WindowsTerminal" "terminal_wallpaper.jpg"
-    $destination = Join-Path $Env:USERPROFILE ".config"
-
-    $null = New-Item -Path $destination -Name "terminal_wallpaper.jpg" -ItemType SymbolicLink -Value $source -Force
-    $source = Join-Path "WindowsTerminal" "settings.json"
-    $destination = [IO.Path]::Combine($Env:LOCALAPPDATA, "Microsoft", "Windows Terminal", "Fragments", "dotfiles")
-    $null = New-Item -Path $destination -Name "settings.json" -ItemType SymbolicLink -Value $source -Force
-
     # Patch the root config
     $target = [IO.Path]::Combine($Env:LOCALAPPDATA, "Packages", "Microsoft.WindowsTerminal_8wekyb3d8bbwe", "LocalState", "settings.json")
     $patch = Join-Path "WindowsTerminal" "settings.patch.json"
