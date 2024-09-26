@@ -27,10 +27,6 @@ fi
 echo "Configuring Git..."
 ln -sf $(realpath "Git/.gitconfig") ~/.gitconfig
 
-# Symlinking the entire templates directory results in creating a recursive link for some reason.
-mkdir -p ~/.git-templates/hooks
-ln -sTf $(realpath "Git/templates/hooks/pre-push") ~/.git-templates/hooks/pre-push
-
 if [ ! -f ~/.gitconfig-user ];
 then
     echo "This machine does not have a default git user, please enter the desired account details."

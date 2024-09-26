@@ -21,9 +21,6 @@
 [diff]
     colorMoved = default
 
-[init]
-    templatedir = ~/.git-templates
-
 [rerere]
     enabled = true
 
