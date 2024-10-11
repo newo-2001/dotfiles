@@ -25,3 +25,9 @@ vim.opt.spellfile = vim.fn.stdpath("data") .. "/spell/en.utf-8.add" -- Add local
 vim.diagnostic.config({
     update_in_insert = true -- Update LSP on diagnostic for every keystroke
 })
+
+vim.filetype.add({
+    extension = {
+        ["http"] = "http"
+    }
+})

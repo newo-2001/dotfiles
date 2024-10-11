@@ -36,8 +36,16 @@ return {
                 lualine_c = {
                     "searchcount"
                 },
-                lualine_x = {},
+                lualine_x = { },
                 lualine_y = {
+                    function()
+                        if vim.bo.filetype == "http" then
+                            local env = require("kulala").get_selected_env()
+                            return "󰫧 " .. env
+                        end
+
+                        return ""
+                    end,
                     "encoding",
                     {
                         "fileformat",

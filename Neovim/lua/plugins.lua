@@ -15,5 +15,12 @@ return {
     "aznhe21/actions-preview.nvim",
     "romainl/vim-cool",
     "romainl/vim-qf",
-    "github/copilot.vim"
+    "github/copilot.vim",
+    {
+        "mistweaverco/kulala.nvim",
+        opts = {
+            default_env = "Development",
+            environment_scope = "g"
+        }
+    }
 }

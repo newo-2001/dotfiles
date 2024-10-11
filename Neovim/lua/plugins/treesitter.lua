@@ -27,6 +27,7 @@ return {
                     "gitignore",
                     "haskell",
                     "html",
+                    "http",
                     "ini",
                     "java",
                     "javascript",

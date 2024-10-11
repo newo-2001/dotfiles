@@ -230,6 +230,16 @@ return {
                 cat = "Lsp"
             },
             {
+                desc = "Run HTTP request",
+                keys = { 'n', "<Leader>hr" },
+                cmd = function() require("kulala").run() end
+            },
+            {
+                desc = "Set HTTP environment",
+                keys = { 'n', "<Leader>he" },
+                cmd = function() require("kulala").set_selected_env() end
+            },
+            {
                 desc = "Move to relative window",
                 keys = { 'n', "<C-w>[hjkl<Arrow>]" },
                 cmd = noop,
