@@ -72,7 +72,6 @@ local quotes = {
     "Memento mori",
     "Did you mean: emacs",
     "Welcome home",
-    [["Software is like sex; it's better when it's free" — Linus Torvalds ]],
     { " 【=◈︿◈= 】", italic = false }
 }
 
