@@ -77,7 +77,7 @@ local function update()
                     local title = row:match('(.-)",', 2)
                     if title ~= nil then
                         title = title:reverse()
-                        if title:match("^Spotify") == nil and title:match("^N/A") == nil then
+                        if title:match("^Spotify") == nil and title:match("^N/A") == nil and title:match("^OleMainThreadWndName$") == nil then
                             now_playing = "󰓇 " .. title
                             return
                         end
