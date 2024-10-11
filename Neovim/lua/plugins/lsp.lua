@@ -25,7 +25,7 @@ return {
                 "lua_ls",                          -- lua
                 "omnisharp",                       -- C#
                 "texlab",                          -- LaTeX
-                "tsserver",                        -- Typescript
+                "ts_ls",                           -- Typescript
                 "jsonls",                          -- Json
                 "yamlls",                          -- Yaml
                 "terraformls",                     -- Terraform
@@ -55,7 +55,7 @@ return {
 
             local language_servers = {
                 "texlab",
-                "tsserver",
+                "ts_ls",
                 "terraformls",
                 "clangd",
                 "pyright",
